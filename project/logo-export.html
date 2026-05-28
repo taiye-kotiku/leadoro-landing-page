@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<link rel="stylesheet" href="styles/leadoro.css"/>
+<style>
+  body { margin:0; background:#F4EFE6; }
+  .tile { width: 900px; height: 500px; display:flex; align-items:center; justify-content:center; }
+  .tile.dark { background:#18120E; }
+  .tile.white { background:#FFFFFF; }
+  .lockup { display:flex; align-items:center; gap:34px; }
+  .lockup svg { width:150px; height:150px; }
+  .lockup .wm { font-family:var(--serif); font-size:118px; letter-spacing:-0.02em; color:var(--ink); line-height:1; }
+  .lockup .wm em { font-style:italic; color:var(--copper); }
+  .lockup.rev .wm { color:#F4EFE6; }
+  .markonly svg { width:340px; height:340px; }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <radialGradient id="cg" cx="38%" cy="32%" r="78%">
+    <stop offset="0%" stop-color="#F0D49A"/><stop offset="38%" stop-color="#D9A45C"/>
+    <stop offset="72%" stop-color="#B8612D"/><stop offset="100%" stop-color="#8B4520"/>
+  </radialGradient>
+  <linearGradient id="ce" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#F2DCA8"/><stop offset="100%" stop-color="#7A3C1A"/>
+  </linearGradient>
+  <symbol id="coin" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="48" fill="url(#ce)"/>
+    <circle cx="50" cy="50" r="45" fill="url(#cg)"/>
+    <circle cx="50" cy="50" r="39.5" fill="none" stroke="#FBF1DC" stroke-width="1.1" stroke-opacity="0.5"/>
+    <text x="40" y="69" font-family="Instrument Serif, Georgia, serif" font-style="italic" font-size="58" fill="#FBF4E6">L</text>
+    <circle cx="60" cy="44" r="2.4" fill="#FBF4E6" fill-opacity="0.95"/>
+    <circle cx="66" cy="36" r="3.2" fill="#FBF4E6" fill-opacity="0.95"/>
+    <circle cx="73" cy="27" r="4.2" fill="#FBF4E6"/>
+    <ellipse cx="42" cy="30" rx="22" ry="12" fill="#FFFFFF" fill-opacity="0.14"/>
+  </symbol>
+</defs></svg>
+
+<div id="t_mark" class="tile markonly"><svg><use href="#coin"/></svg></div>
+<div id="t_horiz" class="tile"><div class="lockup"><svg><use href="#coin"/></svg><span class="wm">Lead<em>oro</em></span></div></div>
+<div id="t_dark" class="tile dark"><div class="lockup rev"><svg><use href="#coin"/></svg><span class="wm">Lead<em>oro</em></span></div></div>
+
+</body>
+</html>

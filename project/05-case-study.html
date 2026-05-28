@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Case Study Template — Leadoro</title>
+<link rel="stylesheet" href="styles/leadoro.css"/>
+<style>
+.page{max-width:880px;padding:56px 72px 80px}
+.hero{margin-bottom:52px}
+.hero h1{font-family:var(--serif);font-size:62px;line-height:.97;letter-spacing:-.025em;margin-top:18px}
+.hero h1 em{font-style:italic;color:var(--copper)}
+.hero .sub{font-family:var(--serif);font-style:italic;font-size:19px;color:var(--ink-2);max-width:560px;margin-top:18px;line-height:1.45}
+
+/* Usage banner */
+.usage{padding:14px 20px;background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);margin-bottom:48px;display:flex;align-items:center;gap:16px}
+.usage .dot{width:8px;height:8px;border-radius:50%;background:var(--copper);flex-shrink:0}
+.usage p{font-size:13px;color:var(--ink-mute);margin:0;line-height:1.5}
+.usage p b{color:var(--ink);font-weight:500}
+
+/* The case study card */
+.cs-card{background:var(--white);border:1px solid var(--line);border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--shadow-md)}
+
+/* Card header */
+.cs-head{padding:36px 40px 28px;background:linear-gradient(135deg,rgba(184,97,45,.07),rgba(184,149,89,.05)),var(--paper-soft);border-bottom:1px solid var(--line)}
+.cs-head .eyebrow-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.cs-head h2{font-family:var(--serif);font-size:40px;line-height:1.05;letter-spacing:-.02em}
+.cs-head h2 em{font-style:italic;color:var(--copper)}
+.cs-head .meta{margin-top:12px;display:flex;gap:24px;flex-wrap:wrap}
+.cs-head .meta-item{font-family:var(--mono);font-size:11px;color:var(--ink-mute);letter-spacing:.1em}
+.cs-head .meta-item b{color:var(--ink-2);font-weight:500;font-family:var(--sans)}
+
+/* Section block inside card */
+.cs-section{padding:28px 40px;border-bottom:1px solid var(--line)}
+.cs-section:last-child{border-bottom:0}
+.cs-section .sec-label{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--copper);margin-bottom:14px}
+.cs-section h3{font-family:var(--serif);font-size:26px;letter-spacing:-.015em;margin-bottom:12px;line-height:1.1}
+.cs-section h3 em{font-style:italic}
+.cs-section p{font-size:15px;line-height:1.7;color:var(--ink-2);margin:0}
+.cs-section p + p{margin-top:10px}
+.cs-section .fill-hint{display:inline-block;background:var(--copper-tint);color:var(--copper-deep);padding:2px 8px;border-radius:3px;font-family:var(--mono);font-size:12px;font-style:italic}
+
+/* Results table */
+.results-table{width:100%;border-collapse:collapse;margin-top:14px}
+.results-table thead tr{background:var(--paper-soft)}
+.results-table th{text-align:left;padding:10px 16px;font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-mute);border-bottom:1px solid var(--line);font-weight:500}
+.results-table td{padding:13px 16px;border-bottom:1px solid var(--line);font-size:14px;color:var(--ink-2);vertical-align:middle}
+.results-table tr:last-child td{border-bottom:0}
+.results-table .metric{font-weight:500;color:var(--ink)}
+.results-table .before{font-family:var(--mono);font-size:13px;color:var(--ink-mute)}
+.results-table .after{font-family:var(--serif);font-size:20px;color:var(--copper);font-style:italic;letter-spacing:-.01em}
+.results-table .delta{display:inline-flex;align-items:center;gap:4px;background:var(--sage-tint);color:var(--sage);padding:3px 8px;border-radius:999px;font-family:var(--mono);font-size:11px;font-weight:600}
+
+/* Quote block */
+.quote-block{background:var(--paper-soft);border-left:3px solid var(--copper);padding:22px 26px;border-radius:0 var(--r-md) var(--r-md) 0}
+.quote-block blockquote{font-family:var(--serif);font-style:italic;font-size:20px;line-height:1.5;color:var(--ink);margin:0 0 10px}
+.quote-block cite{font-size:13px;color:var(--ink-mute);font-style:normal;font-family:var(--sans)}
+
+/* Tech row */
+.tech-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.tech-row span{padding:5px 11px;border:1px solid var(--line);border-radius:999px;font-family:var(--mono);font-size:11px;color:var(--ink-2);letter-spacing:.04em}
+
+/* Card footer */
+.cs-footer{padding:20px 40px;background:var(--paper-soft);border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+.cs-footer .kv{font-family:var(--mono);font-size:11px;color:var(--ink-mute);letter-spacing:.1em}
+.cs-footer .kv b{color:var(--ink-2);font-weight:500;font-family:var(--sans);display:block;margin-top:2px}
+
+/* Guidance section below card */
+.guidance{margin-top:56px}
+.guidance h2{font-family:var(--serif);font-size:32px;letter-spacing:-.015em;margin-bottom:22px}
+.guide-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.guide-item{padding:20px 22px;background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg)}
+.guide-item .n{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--copper);text-transform:uppercase;margin-bottom:8px}
+.guide-item h4{font-family:var(--serif);font-size:18px;margin-bottom:6px;line-height:1.15}
+.guide-item p{font-size:13px;color:var(--ink-mute);line-height:1.55;margin:0}
+
+/* Distribution strip */
+.distro{margin-top:24px;padding:24px 28px;background:var(--card);border:1px solid var(--line);border-radius:var(--r-xl);display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.distro-item .ch{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--copper);margin-bottom:6px}
+.distro-item h4{font-family:var(--serif);font-size:17px;margin-bottom:4px}
+.distro-item p{font-size:12px;color:var(--ink-mute);margin:0;line-height:1.5}
+
+.topnav{position:fixed;top:24px;left:24px;z-index:10}
+.topnav a{font-family:var(--mono);font-size:11px;color:var(--ink-mute);background:var(--card);border:1px solid var(--line);padding:7px 13px;border-radius:999px;letter-spacing:.1em;text-transform:uppercase}
+.topnav a:hover{color:var(--copper);border-color:var(--copper)}
+@media print{.topnav{display:none}}
+</style>
+</head>
+<body>
+<div class="topnav no-print"><a href="index.html">← Sales Kit</a></div>
+<main class="page" data-screen-label="Case Study Template">
+
+  <header class="page-head">
+    <div class="wordmark"><span class="mark">L</span><span class="name">Lead<em>oro</em></span></div>
+    <div class="page-meta"><span class="doc-no">Doc 05 / 05</span>Case Study Template<br/><span class="mute">Portfolio · LinkedIn · Pitches</span></div>
+  </header>
+
+  <section class="hero">
+    <div class="eyebrow copper">After every client engagement</div>
+    <h1>Document the result.<br/><em>Let it sell the next one.</em></h1>
+    <p class="sub">Fill in the fields marked <span class="fill-hint">in brackets</span> after every project. One case study becomes a LinkedIn post, a portfolio card, and a live proof point for the next pitch.</p>
+  </section>
+
+  <div class="usage">
+    <div class="dot"></div>
+    <p><b>How to use this:</b> Fill in the bracketed fields after each client. No name needed unless they approve. Publish on LinkedIn immediately — results decay in relevance fast. Add to your portfolio page. Bring printed to the next discovery call.</p>
+  </div>
+
+  <!-- THE CARD -->
+  <div class="cs-card">
+
+    <div class="cs-head">
+      <div class="eyebrow-row">
+        <div class="eyebrow copper">Case Study</div>
+        <div style="display:flex;gap:8px">
+          <span class="tag sage">Results verified</span>
+          <span class="tag">Leadoro build</span>
+        </div>
+      </div>
+      <h2><em class="fill-hint">[Business Type]</em> — AI Lead Conversion System</h2>
+      <div class="meta">
+        <div class="meta-item">Location<br/><b class="fill-hint">[City, Country]</b></div>
+        <div class="meta-item">Industry<br/><b class="fill-hint">[e.g. Skin Clinic]</b></div>
+        <div class="meta-item">Inquiry volume<br/><b class="fill-hint">[e.g. 50+ / week]</b></div>
+        <div class="meta-item">Timeline<br/><b class="fill-hint">[X days to live]</b></div>
+        <div class="meta-item">Package<br/><b class="fill-hint">[Basic / Standard / Growth]</b></div>
+      </div>
+    </div>
+
+    <div class="cs-section">
+      <div class="sec-label">01 · The Client</div>
+      <p><span class="fill-hint">[Business type, size, location — no name needed unless approved. Be specific about the context: volume of inquiries, how the team was handling them, and what was breaking.]</span></p>
+      <p style="color:var(--ink-mute);font-style:italic;font-size:13px;margin-top:10px">Example: A skin &amp; hair clinic in Lagos getting 50+ WhatsApp inquiries per week, with a team of 3 handling responses manually during business hours only.</p>
+    </div>
+
+    <div class="cs-section">
+      <div class="sec-label">02 · The Problem</div>
+      <h3>What was <em>breaking</em> before.</h3>
+      <p><span class="fill-hint">[Describe the specific failure mode — slow response, no follow-up, leads going cold after hours. Use the numbers from your discovery call if you have them.]</span></p>
+      <p style="color:var(--ink-mute);font-style:italic;font-size:13px;margin-top:10px">Example: Leads were coming in 24/7 but responses only happened during business hours. By the time the team replied, 60% of leads had already contacted another clinic.</p>
+    </div>
+
+    <div class="cs-section">
+      <div class="sec-label">03 · The Solution</div>
+      <h3>What we <em>built.</em></h3>
+      <p><span class="fill-hint">[Non-technical description — write as if explaining to the client's business partner. What does it do? What did it replace? What's automated now that wasn't before?]</span></p>
+      <p style="color:var(--ink-mute);font-style:italic;font-size:13px;margin-top:10px">Example: A WhatsApp AI assistant that responds within 10 seconds, asks 4 qualification questions, books appointments into Google Calendar, and sends automated reminders 24 hours before.</p>
+      <div class="tech-row">
+        <span>n8n</span>
+        <span>WhatsApp Business API</span>
+        <span>OpenAI GPT-4</span>
+        <span>Google Calendar</span>
+        <span class="fill-hint">[Add / remove tools]</span>
+      </div>
+    </div>
+
+    <div class="cs-section">
+      <div class="sec-label">04 · The Results</div>
+      <h3>Numbers that <em>matter.</em></h3>
+      <table class="results-table">
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Before</th>
+            <th>After</th>
+            <th>Change</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="metric">Average response time</td>
+            <td class="before">4–6 hours</td>
+            <td class="after">10 sec</td>
+            <td><span class="delta">↑ 99%</span></td>
+          </tr>
+          <tr>
+            <td class="metric">Lead conversion rate</td>
+            <td class="before"><span class="fill-hint">X%</span></td>
+            <td class="after"><span class="fill-hint">Y%</span></td>
+            <td><span class="delta fill-hint">+Z%</span></td>
+          </tr>
+          <tr>
+            <td class="metric">Appointments / week</td>
+            <td class="before"><span class="fill-hint">X</span></td>
+            <td class="after"><span class="fill-hint">Y</span></td>
+            <td><span class="delta fill-hint">+N</span></td>
+          </tr>
+          <tr>
+            <td class="metric">Manual follow-up time</td>
+            <td class="before"><span class="fill-hint">X hrs/day</span></td>
+            <td class="after">0 hrs/day</td>
+            <td><span class="delta">↓ 100%</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="cs-section">
+      <div class="sec-label">05 · Client Quote</div>
+      <div class="quote-block">
+        <blockquote>"<span class="fill-hint">[Testimonial — if available. If not, write: 'Testimonial pending approval.' Never fabricate.]</span>"</blockquote>
+        <cite>— <span class="fill-hint">[First name or role]</span>, <span class="fill-hint">[Business type]</span></cite>
+      </div>
+    </div>
+
+    <div class="cs-footer">
+      <div class="kv">Retainer<b class="fill-hint">Yes / No</b></div>
+      <div class="kv">Referrals generated<b class="fill-hint">[X clients]</b></div>
+      <div class="kv">Next phase<b class="fill-hint">[e.g. AI voice expansion]</b></div>
+    </div>
+
+  </div>
+
+  <!-- GUIDANCE -->
+  <div class="guidance">
+    <h2>How to fill this in well.</h2>
+    <div class="guide-grid">
+      <div class="guide-item">
+        <div class="n">Rule 01</div>
+        <h4>Numbers beat adjectives.</h4>
+        <p>"Conversion went from 28% to 71%" is infinitely more powerful than "significantly improved." If you don't have exact numbers, use ranges and label them estimates.</p>
+      </div>
+      <div class="guide-item">
+        <div class="n">Rule 02</div>
+        <h4>No name needed.</h4>
+        <p>"A skin clinic in Lagos" is sufficient and protects the client. Ask for name permission only after they've seen the draft — never assume.</p>
+      </div>
+      <div class="guide-item">
+        <div class="n">Rule 03</div>
+        <h4>Write within 48 hours.</h4>
+        <p>Memory fades. The details that make a case study compelling — the specific problem, the 'aha' moment, the first result — are freshest right after launch.</p>
+      </div>
+      <div class="guide-item">
+        <div class="n">Rule 04</div>
+        <h4>One case study, three formats.</h4>
+        <p>LinkedIn post (narrative), PDF card (attach to proposals), and a verbal summary (30 seconds for the call). Prepare all three at once — it saves time later.</p>
+      </div>
+    </div>
+
+    <div class="distro">
+      <div class="distro-item">
+        <div class="ch">LinkedIn</div>
+        <h4>Post immediately.</h4>
+        <p>Results post on launch day. Story arc: problem → solution → numbers. Tag the client only if approved.</p>
+      </div>
+      <div class="distro-item">
+        <div class="ch">Portfolio</div>
+        <h4>Add to your website.</h4>
+        <p>Short card version: business type, one headline result, tools used. Link to the full PDF case study.</p>
+      </div>
+      <div class="distro-item">
+        <div class="ch">Pitches</div>
+        <h4>Send before the call.</h4>
+        <p>When a prospect is in the same industry, send the relevant case study with your booking link. It pre-sells the call.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="page-foot">
+    <span>Leadoro · Lead-to-Revenue Automation</span>
+    <span class="mono">05 / 05 · Case Study Template</span>
+  </footer>
+
+</main>
+</body>
+</html>

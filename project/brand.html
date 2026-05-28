@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Leadoro — Brand & Logo</title>
+<link rel="stylesheet" href="styles/leadoro.css"/>
+<style>
+  body { background: var(--paper); }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 56px 56px 96px; }
+
+  .top {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-bottom: 24px; border-bottom: 1px solid var(--line); margin-bottom: 56px;
+  }
+  .top .meta { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-mute); text-align: right; line-height: 1.7; }
+  .top .meta b { color: var(--copper); font-weight: 500; }
+
+  .intro { margin-bottom: 64px; max-width: 720px; }
+  .intro h1 { font-family: var(--serif); font-size: 56px; line-height: 1; letter-spacing: -0.025em; margin: 16px 0 18px; }
+  .intro h1 em { font-style: italic; color: var(--copper); }
+  .intro p { font-size: 15px; color: var(--ink-2); line-height: 1.7; }
+
+  .block-label {
+    display: flex; align-items: baseline; gap: 14px;
+    margin: 64px 0 28px; padding-bottom: 12px; border-bottom: 1px solid var(--line);
+  }
+  .block-label .n { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--copper); text-transform: uppercase; }
+  .block-label h2 { font-family: var(--serif); font-size: 30px; letter-spacing: -0.015em; }
+  .block-label .hint { margin-left: auto; font-size: 12px; color: var(--ink-mute); font-style: italic; }
+
+  /* Hero logo stage */
+  .logo-stage {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--r-xl);
+    padding: 72px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    overflow: hidden;
+  }
+  .logo-stage::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 50% 30%, rgba(184,149,89,0.10), transparent 55%);
+    pointer-events: none;
+  }
+
+  /* ─── THE MEDALLION MARK (SVG via symbol) ─── */
+  .lockup-primary {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+  }
+  .lockup-primary .mk { width: 96px; height: 96px; }
+  .lockup-primary .wm {
+    font-family: var(--serif);
+    font-size: 76px;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    line-height: 1;
+  }
+  .lockup-primary .wm em { font-style: italic; color: var(--copper); }
+  .tagline-under {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.42em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-top: 22px;
+    padding-left: 4px;
+  }
+
+  /* Variations grid */
+  .var-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  .var-cell {
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    padding: 40px 28px 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    min-height: 220px;
+    position: relative;
+    background: var(--card);
+  }
+  .var-cell.dark { background: #18120E; border-color: #18120E; }
+  .var-cell .cap {
+    position: absolute;
+    bottom: 14px; left: 0; right: 0;
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .var-cell.dark .cap { color: #8A7A66; }
+
+  .stacked { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .stacked .wm { font-family: var(--serif); font-size: 34px; color: var(--ink); letter-spacing: -0.02em; }
+  .stacked .wm em { font-style: italic; color: var(--copper); }
+  .stacked.rev .wm { color: #F4EFE6; }
+
+  .horiz { display: flex; align-items: center; gap: 12px; }
+  .horiz .wm { font-family: var(--serif); font-size: 30px; color: var(--ink); letter-spacing: -0.02em; }
+  .horiz .wm em { font-style: italic; color: var(--copper); }
+  .horiz.rev .wm { color: #F4EFE6; }
+  .horiz.mono .wm { color: var(--ink); }
+  .horiz.mono .wm em { color: var(--ink); }
+
+  /* Construction / clear space */
+  .construct {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .construct .panel {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    padding: 32px;
+  }
+  .construct .panel h4 { font-family: var(--serif); font-size: 20px; margin-bottom: 6px; }
+  .construct .panel p { font-size: 13px; color: var(--ink-mute); line-height: 1.6; margin: 0 0 22px; }
+  .clearbox {
+    display: inline-flex;
+    padding: 32px;
+    border: 1px dashed var(--line-strong);
+    border-radius: var(--r-md);
+    position: relative;
+  }
+  .sizes { display: flex; align-items: flex-end; gap: 32px; flex-wrap: wrap; }
+  .size-item { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .size-item .lbl { font-family: var(--mono); font-size: 10px; color: var(--ink-mute); letter-spacing: 0.1em; }
+
+  /* Color palette */
+  .palette { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .swatch {
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+  }
+  .swatch .chip { height: 96px; }
+  .swatch .info { padding: 14px 16px; background: var(--card); }
+  .swatch .info .name { font-family: var(--sans); font-size: 13px; font-weight: 500; color: var(--ink); }
+  .swatch .info .hex { font-family: var(--mono); font-size: 11px; color: var(--ink-mute); margin-top: 2px; letter-spacing: 0.04em; }
+
+  /* Do / Don't */
+  .rules { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .rule-col { border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden; }
+  .rule-col .head { padding: 12px 18px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; }
+  .rule-col.do .head { background: var(--sage-tint); color: var(--sage); }
+  .rule-col.dont .head { background: var(--copper-tint); color: var(--copper-deep); }
+  .rule-col ul { margin: 0; padding: 18px 22px; list-style: none; }
+  .rule-col li { font-size: 13px; color: var(--ink-2); line-height: 1.5; padding: 7px 0 7px 18px; position: relative; }
+  .rule-col li::before { content: ''; position: absolute; left: 0; top: 13px; width: 8px; height: 8px; border-radius: 50%; }
+  .rule-col.do li::before { background: var(--sage); }
+  .rule-col.dont li::before { background: var(--copper); }
+
+  .topnav { position: fixed; top: 24px; left: 24px; z-index: 10; }
+  .topnav a { font-family: var(--mono); font-size: 11px; color: var(--ink-mute); background: var(--card); border: 1px solid var(--line); padding: 8px 14px; border-radius: 999px; letter-spacing: 0.1em; text-transform: uppercase; }
+  .topnav a:hover { color: var(--copper); border-color: var(--copper); }
+
+  @media print { .topnav { display: none; } }
+</style>
+</head>
+<body>
+
+<!-- ════ REUSABLE SVG MARK DEFINITIONS ════ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <radialGradient id="coinGold" cx="38%" cy="32%" r="78%">
+      <stop offset="0%" stop-color="#F0D49A"/>
+      <stop offset="38%" stop-color="#D9A45C"/>
+      <stop offset="72%" stop-color="#B8612D"/>
+      <stop offset="100%" stop-color="#8B4520"/>
+    </radialGradient>
+    <linearGradient id="coinEdge" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F2DCA8"/>
+      <stop offset="100%" stop-color="#7A3C1A"/>
+    </linearGradient>
+
+    <!-- Full medallion mark -->
+    <symbol id="markCoin" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="48" fill="url(#coinEdge)"/>
+      <circle cx="50" cy="50" r="45" fill="url(#coinGold)"/>
+      <circle cx="50" cy="50" r="39.5" fill="none" stroke="#FBF1DC" stroke-width="1.1" stroke-opacity="0.5"/>
+      <!-- serif L -->
+      <text x="40" y="69" font-family="Instrument Serif, Georgia, serif" font-style="italic" font-size="58" fill="#FBF4E6">L</text>
+      <!-- ascending dots: leads rising into gold -->
+      <circle cx="60" cy="44" r="2.4" fill="#FBF4E6" fill-opacity="0.95"/>
+      <circle cx="66" cy="36" r="3.2" fill="#FBF4E6" fill-opacity="0.95"/>
+      <circle cx="73" cy="27" r="4.2" fill="#FBF4E6"/>
+      <!-- top sheen -->
+      <ellipse cx="42" cy="30" rx="22" ry="12" fill="#FFFFFF" fill-opacity="0.14"/>
+    </symbol>
+
+    <!-- Flat single-color mark (for mono use) -->
+    <symbol id="markFlat" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="47" fill="none" stroke="currentColor" stroke-width="2.4"/>
+      <text x="40" y="69" font-family="Instrument Serif, Georgia, serif" font-style="italic" font-size="58" fill="currentColor">L</text>
+      <circle cx="60" cy="44" r="2.4" fill="currentColor"/>
+      <circle cx="66" cy="36" r="3.2" fill="currentColor"/>
+      <circle cx="73" cy="27" r="4.2" fill="currentColor"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="topnav no-print"><a href="index.html">← Sales Kit</a></div>
+
+<main class="wrap" data-screen-label="Brand & Logo">
+
+  <header class="top">
+    <div class="wordmark">
+      <span class="mark">L</span>
+      <span class="name">Lead<em>oro</em></span>
+    </div>
+    <div class="meta">
+      Brand Identity<br/>
+      <b>Logo System · 2026</b>
+    </div>
+  </header>
+
+  <section class="intro">
+    <div class="eyebrow copper">The Identity</div>
+    <h1>A mark for turning<br/>leads into <em>oro.</em></h1>
+    <p>
+      <em>Leadoro</em> reads as <em>lead</em> + <em>oro</em> — Spanish and Italian for <em>gold</em>. The identity makes the promise literal: every cold inquiry is raw material to be refined into something valuable. The mark is a struck gold medallion; the ascending points are leads rising into revenue.
+    </p>
+  </section>
+
+  <!-- PRIMARY LOGO -->
+  <div class="block-label">
+    <span class="n">01</span>
+    <h2>Primary Logo</h2>
+    <span class="hint">Medallion mark + serif wordmark</span>
+  </div>
+
+  <div class="logo-stage">
+    <div class="lockup-primary">
+      <svg class="mk"><use href="#markCoin"/></svg>
+      <span class="wm">Lead<em>oro</em></span>
+    </div>
+    <div class="tagline-under">Lead-to-Revenue Automation</div>
+  </div>
+
+  <!-- VARIATIONS -->
+  <div class="block-label">
+    <span class="n">02</span>
+    <h2>Lockup Variations</h2>
+    <span class="hint">Use the version that fits the space</span>
+  </div>
+
+  <div class="var-grid">
+    <div class="var-cell">
+      <div class="stacked">
+        <svg style="width:64px;height:64px"><use href="#markCoin"/></svg>
+        <span class="wm">Lead<em>oro</em></span>
+      </div>
+      <span class="cap">Stacked · primary</span>
+    </div>
+    <div class="var-cell">
+      <div class="horiz">
+        <svg style="width:52px;height:52px"><use href="#markCoin"/></svg>
+        <span class="wm">Lead<em>oro</em></span>
+      </div>
+      <span class="cap">Horizontal · compact</span>
+    </div>
+    <div class="var-cell">
+      <svg style="width:72px;height:72px"><use href="#markCoin"/></svg>
+      <span class="cap">Mark only · app / avatar</span>
+    </div>
+    <div class="var-cell dark">
+      <div class="stacked rev">
+        <svg style="width:64px;height:64px"><use href="#markCoin"/></svg>
+        <span class="wm">Lead<em>oro</em></span>
+      </div>
+      <span class="cap">Reversed · on dark</span>
+    </div>
+    <div class="var-cell dark">
+      <div class="horiz rev" style="color:#F4EFE6">
+        <svg style="width:48px;height:48px;color:#DBA76A"><use href="#markFlat"/></svg>
+        <span class="wm">Lead<em style="color:#DBA76A">oro</em></span>
+      </div>
+      <span class="cap">Flat gold · on dark</span>
+    </div>
+    <div class="var-cell">
+      <div class="horiz mono" style="color:var(--ink)">
+        <svg style="width:48px;height:48px;color:var(--ink)"><use href="#markFlat"/></svg>
+        <span class="wm">Leadoro</span>
+      </div>
+      <span class="cap">Monochrome · 1-color print</span>
+    </div>
+  </div>
+
+  <!-- CONSTRUCTION -->
+  <div class="block-label">
+    <span class="n">03</span>
+    <h2>Clear Space &amp; Sizing</h2>
+    <span class="hint">Give the mark room to breathe</span>
+  </div>
+
+  <div class="construct">
+    <div class="panel">
+      <h4>Clear space</h4>
+      <p>Keep margin equal to the height of the medallion's inner ring on all sides. Nothing crowds the mark.</p>
+      <div class="clearbox">
+        <svg style="width:84px;height:84px"><use href="#markCoin"/></svg>
+      </div>
+    </div>
+    <div class="panel">
+      <h4>Minimum sizes</h4>
+      <p>Below 24px the dots lose definition — switch to the flat mark for favicons and tiny UI.</p>
+      <div class="sizes">
+        <div class="size-item"><svg style="width:72px;height:72px"><use href="#markCoin"/></svg><span class="lbl">72 px</span></div>
+        <div class="size-item"><svg style="width:48px;height:48px"><use href="#markCoin"/></svg><span class="lbl">48 px</span></div>
+        <div class="size-item"><svg style="width:32px;height:32px"><use href="#markCoin"/></svg><span class="lbl">32 px</span></div>
+        <div class="size-item"><svg style="width:24px;height:24px;color:var(--copper)"><use href="#markFlat"/></svg><span class="lbl">24 px flat</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COLOR -->
+  <div class="block-label">
+    <span class="n">04</span>
+    <h2>Color</h2>
+    <span class="hint">Copper, gold, ink &amp; parchment</span>
+  </div>
+
+  <div class="palette">
+    <div class="swatch">
+      <div class="chip" style="background:linear-gradient(135deg,#F0D49A,#B8612D 60%,#8B4520)"></div>
+      <div class="info"><div class="name">Oro Gold</div><div class="hex">Gradient · mark</div></div>
+    </div>
+    <div class="swatch">
+      <div class="chip" style="background:#B8612D"></div>
+      <div class="info"><div class="name">Copper</div><div class="hex">#B8612D</div></div>
+    </div>
+    <div class="swatch">
+      <div class="chip" style="background:#1A1612"></div>
+      <div class="info"><div class="name">Ink</div><div class="hex">#1A1612</div></div>
+    </div>
+    <div class="swatch">
+      <div class="chip" style="background:#F4EFE6;border-bottom:1px solid var(--line)"></div>
+      <div class="info"><div class="name">Parchment</div><div class="hex">#F4EFE6</div></div>
+    </div>
+  </div>
+
+  <!-- DO / DON'T -->
+  <div class="block-label">
+    <span class="n">05</span>
+    <h2>Usage</h2>
+    <span class="hint">Protect the mark</span>
+  </div>
+
+  <div class="rules">
+    <div class="rule-col do">
+      <div class="head">Do</div>
+      <ul>
+        <li>Use the gold medallion on light parchment or photography.</li>
+        <li>Switch to the flat gold or cream mark on dark backgrounds.</li>
+        <li>Keep the serif wordmark — Instrument Serif — with "oro" in copper.</li>
+        <li>Give the mark generous clear space.</li>
+      </ul>
+    </div>
+    <div class="rule-col dont">
+      <div class="head">Don't</div>
+      <ul>
+        <li>Recolor the wordmark or set it in a different typeface.</li>
+        <li>Stretch, rotate, or add drop shadows to the medallion.</li>
+        <li>Place the gradient coin on a busy or low-contrast background.</li>
+        <li>Shrink the full coin below 24px — use the flat mark instead.</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer class="page-foot">
+    <span>Leadoro · Lead-to-Revenue Automation</span>
+    <span class="mono">Brand · Logo System</span>
+  </footer>
+
+</main>
+</body>
+</html>

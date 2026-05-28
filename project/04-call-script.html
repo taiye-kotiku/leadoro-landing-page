@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Call Script — Leadoro</title>
+<link rel="stylesheet" href="styles/leadoro.css"/>
+<style>
+.page{max-width:900px;padding:56px 72px 80px}
+.hero{margin-bottom:52px}
+.hero h1{font-family:var(--serif);font-size:62px;line-height:.97;letter-spacing:-.025em;margin-top:18px}
+.hero h1 em{font-style:italic;color:var(--copper)}
+.hero .sub{font-family:var(--serif);font-style:italic;font-size:19px;color:var(--ink-2);max-width:540px;margin-top:18px;line-height:1.45}
+
+/* Phase heading */
+.phase{margin-top:56px;margin-bottom:28px;padding-bottom:14px;border-bottom:1px solid var(--line);display:flex;align-items:baseline;gap:16px}
+.phase .n{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--copper);text-transform:uppercase}
+.phase h2{font-family:var(--serif);font-size:34px;letter-spacing:-.015em;line-height:1}
+.phase .time{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-mute);margin-left:auto}
+
+/* Script line */
+.script-line{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:22px 26px;margin-bottom:16px}
+.script-line .sp{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--copper);margin-bottom:8px}
+.script-line blockquote{margin:0;font-family:var(--serif);font-style:italic;font-size:19px;line-height:1.5;color:var(--ink)}
+.script-line .note{margin-top:10px;font-size:12px;color:var(--ink-mute);font-style:normal;font-family:var(--sans);border-top:1px solid var(--line);padding-top:10px;line-height:1.55}
+.script-line .note b{color:var(--ink-2);font-weight:500}
+
+/* Questions list */
+.q-list{display:flex;flex-direction:column;gap:12px;margin-bottom:8px}
+.q-item{display:grid;grid-template-columns:28px 1fr;gap:14px;padding:14px 18px;background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);align-items:start}
+.q-item .qn{font-family:var(--mono);font-size:11px;color:var(--copper);letter-spacing:.12em;padding-top:2px}
+.q-item .qt{font-family:var(--serif);font-style:italic;font-size:17px;line-height:1.35;color:var(--ink)}
+.q-item .qnote{font-size:12px;color:var(--ink-mute);margin-top:4px;font-style:normal;font-family:var(--sans)}
+
+/* Objection cards */
+.obj-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.obj-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden}
+.obj-q{padding:14px 18px 12px;background:var(--paper-soft);border-bottom:1px solid var(--line)}
+.obj-q .lbl{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:4px}
+.obj-q p{font-size:14px;font-style:italic;color:var(--ink);margin:0;line-height:1.4}
+.obj-a{padding:16px 18px}
+.obj-a .lbl{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--copper);margin-bottom:6px}
+.obj-a p{font-family:var(--serif);font-style:italic;font-size:16px;line-height:1.5;color:var(--ink);margin:0}
+
+/* Close section */
+.close-box{background:#1A1612;color:#E9DECE;border-radius:var(--r-xl);padding:36px 40px;margin-top:52px}
+.close-box .ph{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#DBA76A;margin-bottom:14px}
+.close-box blockquote{margin:0;font-family:var(--serif);font-style:italic;font-size:21px;line-height:1.5;color:#E9DECE}
+.close-box .sub{margin-top:16px;font-size:13px;color:#9A8A78;line-height:1.6;border-top:1px solid #3A2C1E;padding-top:14px}
+
+/* Mindset strip */
+.mindset{margin-top:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.ms{padding:18px 20px;background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg)}
+.ms .n{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--copper);margin-bottom:8px}
+.ms h4{font-family:var(--serif);font-size:18px;margin-bottom:5px;line-height:1.15}
+.ms p{font-size:12px;color:var(--ink-mute);line-height:1.55;margin:0}
+
+.topnav{position:fixed;top:24px;left:24px;z-index:10}
+.topnav a{font-family:var(--mono);font-size:11px;color:var(--ink-mute);background:var(--card);border:1px solid var(--line);padding:7px 13px;border-radius:999px;letter-spacing:.1em;text-transform:uppercase}
+.topnav a:hover{color:var(--copper);border-color:var(--copper)}
+@media print{.topnav{display:none}}
+</style>
+</head>
+<body>
+<div class="topnav no-print"><a href="index.html">← Sales Kit</a></div>
+<main class="page" data-screen-label="Call Script">
+
+  <header class="page-head">
+    <div class="wordmark"><span class="mark">L</span><span class="name">Lead<em>oro</em></span></div>
+    <div class="page-meta"><span class="doc-no">Doc 04 / 05</span>The Call Script<br/><span class="mute">Discovery · Pitch · Objections · Close</span></div>
+  </header>
+
+  <section class="hero">
+    <div class="eyebrow copper">The sales conversation framework</div>
+    <h1>A framework, not<br/>a script to <em>read aloud.</em></h1>
+    <p class="sub">Learn the structure. Internalize the questions. Use their exact words back at them. The close writes itself.</p>
+  </section>
+
+  <!-- OPENING -->
+  <div class="phase"><span class="n">Phase 01</span><h2>The Opening</h2><span class="time">First 2 min</span></div>
+  <div class="script-line">
+    <div class="sp">You say →</div>
+    <blockquote>"Thanks for jumping on, [Name]. Before I show you anything, I just want to understand your situation a bit better. Is that okay?"</blockquote>
+    <div class="note"><b>Why this works:</b> Asking permission sets a consultative tone immediately. They expect a pitch — you give them a conversation. The word "okay?" invites them in rather than pushing.</div>
+  </div>
+
+  <!-- DISCOVERY -->
+  <div class="phase"><span class="n">Phase 02</span><h2>Discovery Questions</h2><span class="time">5–7 min</span></div>
+  <div class="q-list">
+    <div class="q-item"><span class="qn">Q1</span><div><div class="qt">"Where are most of your leads coming from right now — ads, referrals, Instagram?"</div><div class="qnote">Sets the context. Reveals which channels they trust and invest in.</div></div></div>
+    <div class="q-item"><span class="qn">Q2</span><div><div class="qt">"When someone sends you a WhatsApp message or fills a form, how quickly do you typically get back to them?"</div><div class="qnote">This is the money question. Whatever they say, it's too slow. Let them feel that.</div></div></div>
+    <div class="q-item"><span class="qn">Q3</span><div><div class="qt">"What happens to leads that come in after hours or on weekends?"</div><div class="qnote">Most say "we reply Monday." That's your gap. Don't say it yet — just note it.</div></div></div>
+    <div class="q-item"><span class="qn">Q4</span><div><div class="qt">"Do you have any follow-up system in place, or is it mostly manual?"</div><div class="qnote">Reveals the chaos behind the scenes. Let them describe it without judgment.</div></div></div>
+    <div class="q-item"><span class="qn">Q5</span><div><div class="qt">"On average, how many inquiries would you say you get per week?"</div><div class="qnote">Sizing the problem. Under 10 = not the right fit. 20+ = strong ROI case.</div></div></div>
+    <div class="q-item"><span class="qn">Q6</span><div><div class="qt">"And roughly, what percentage of those actually convert to bookings or sales?"</div><div class="qnote">They usually guess low. This becomes the before metric in your case study.</div></div></div>
+  </div>
+  <div class="script-line" style="margin-top:8px">
+    <div class="sp">Listening rule →</div>
+    <blockquote>"Their answers are your pitch. Use their words back to them, not yours."</blockquote>
+    <div class="note">Don't take notes on a device. Write on paper. It signals you're listening, not processing.</div>
+  </div>
+
+  <!-- PRESENTATION -->
+  <div class="phase"><span class="n">Phase 03</span><h2>The Presentation</h2><span class="time">5–8 min</span></div>
+  <div class="script-line">
+    <div class="sp">Bridge into the demo →</div>
+    <blockquote>"Okay — based on what you've told me, you're getting around [X] leads per week, response time is [Y hours], and about [Z%] are converting. That's actually really common, and the good news is it's fixable."</blockquote>
+    <div class="note"><b>Then:</b> show the demo video or walk through the flow live. Let the WhatsApp conversation sell the concept before you mention price.</div>
+  </div>
+  <div class="script-line">
+    <div class="sp">After the demo →</div>
+    <blockquote>"What I build sits on top of your WhatsApp and handles everything from the first message to the booked appointment. Your team only gets involved when the lead is warm and ready."</blockquote>
+    <div class="note"><b>Key phrase:</b> "warm and ready." It repositions the system from a tool to a filter for their team's time.</div>
+  </div>
+
+  <!-- OBJECTIONS -->
+  <div class="phase"><span class="n">Phase 04</span><h2>Handling Objections</h2><span class="time">As needed</span></div>
+  <div class="obj-grid">
+    <div class="obj-card">
+      <div class="obj-q"><div class="lbl">Objection</div><p>"We already have someone managing WhatsApp."</p></div>
+      <div class="obj-a"><div class="lbl">Response</div><p>"That's great — this doesn't replace them. It frees them to focus on warm leads only. The system handles all first responses and filtering."</p></div>
+    </div>
+    <div class="obj-card">
+      <div class="obj-q"><div class="lbl">Objection</div><p>"I'm not sure about the price."</p></div>
+      <div class="obj-a"><div class="lbl">Response</div><p>"Totally fair. How much is one new client worth to you? [Pause.] If this brings you even 3–5 extra clients a month you were losing, does the investment make sense?"</p></div>
+    </div>
+    <div class="obj-card">
+      <div class="obj-q"><div class="lbl">Objection</div><p>"I need to think about it."</p></div>
+      <div class="obj-a"><div class="lbl">Response</div><p>"Of course. What's the main thing you'd want to be clearer on before deciding? I'd rather answer that now than have you sitting with a question."</p></div>
+    </div>
+    <div class="obj-card">
+      <div class="obj-q"><div class="lbl">Objection</div><p>"Can you show me results from another client?"</p></div>
+      <div class="obj-a"><div class="lbl">Response</div><p>"Absolutely — I worked with a booking agent for a salon in Italy and a recruitment bot for a German company. Let me pull that up."</p></div>
+    </div>
+  </div>
+
+  <!-- CLOSE -->
+  <div class="phase"><span class="n">Phase 05</span><h2>The Close</h2><span class="time">Final 3 min</span></div>
+  <div class="close-box">
+    <div class="ph">You say →</div>
+    <blockquote>"Based on what we've discussed, I think the [Standard/Growth] package makes the most sense for you because [specific reason from their answers]. The setup fee is [$X] and then [$Y]/month. I can have the first version live within [X] days. Does that work, or is there anything you'd want to adjust?"</blockquote>
+    <div class="sub">Always recommend a specific plan with a reason. Never say "it depends" or "what's your budget?" — that hands control to them. The close is a recommendation, not a menu.</div>
+  </div>
+
+  <!-- MINDSET NOTES -->
+  <div class="mindset">
+    <div class="ms"><div class="n">Rule 01</div><h4>Diagnose first.</h4><p>A doctor doesn't prescribe before asking symptoms. Understand before you sell.</p></div>
+    <div class="ms"><div class="n">Rule 02</div><h4>Silence wins.</h4><p>After the price — pause. Don't fill the space. The first person to speak loses.</p></div>
+    <div class="ms"><div class="n">Rule 03</div><h4>Make it concrete.</h4><p>"Three extra clients a month" beats "more revenue." Specifics feel real. Abstractions feel risky.</p></div>
+  </div>
+
+  <footer class="page-foot">
+    <span>Leadoro · Lead-to-Revenue Automation</span>
+    <span class="mono">04 / 05 · The Call Script</span>
+  </footer>
+
+</main>
+</body>
+</html>

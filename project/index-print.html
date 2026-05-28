@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Leadoro — Sales Kit</title>
+<link rel="stylesheet" href="styles/leadoro.css"/>
+<style>
+  /* ─── Print page setup ─── */
+  @page {
+    size: A4 portrait;
+    margin: 1.2cm 1.4cm;
+  }
+
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+
+  body {
+    background: var(--paper);
+    margin: 0;
+    padding: 0;
+  }
+
+  .cover {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  /* Header */
+  .cover-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 36px;
+  }
+  .cover-head .meta {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    display: flex;
+    gap: 24px;
+  }
+  .cover-head .meta span b {
+    display: block;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink);
+    text-transform: none;
+    letter-spacing: 0.02em;
+    margin-top: 2px;
+    font-weight: 500;
+  }
+
+  /* Hero */
+  .hero {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 48px;
+    align-items: end;
+    margin-bottom: 52px;
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: 72px;
+    line-height: 0.94;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    margin: 0;
+  }
+  .hero h1 .italic {
+    font-style: italic;
+    color: var(--copper);
+    display: block;
+  }
+  .hero .subtitle {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 17px;
+    color: var(--ink-2);
+    line-height: 1.4;
+    margin-top: 20px;
+    max-width: 460px;
+  }
+  .hero .lede {
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--ink-2);
+    border-left: 1px solid var(--line-strong);
+    padding-left: 18px;
+    padding-bottom: 4px;
+  }
+  .hero .lede .label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--copper);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  /* TOC */
+  .toc-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+  .toc-head h2 {
+    font-family: var(--serif);
+    font-size: 28px;
+    letter-spacing: -0.015em;
+  }
+  .toc-head .count {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-mute);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .toc {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--line);
+  }
+  .toc a {
+    display: grid;
+    grid-template-columns: 44px 1fr 1.3fr auto;
+    gap: 20px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: center;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .toc .num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--copper);
+    letter-spacing: 0.16em;
+  }
+  .toc .title {
+    font-family: var(--serif);
+    font-size: 20px;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .toc .audience {
+    display: flex;
+    gap: 5px;
+    margin-top: 6px;
+  }
+  .toc .desc {
+    font-size: 12px;
+    color: var(--ink-mute);
+    line-height: 1.55;
+  }
+  .toc .arrow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--ink-faint);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-family: var(--mono);
+  }
+  .toc .arrow svg { width: 22px; }
+
+  /* Footer band */
+  .band {
+    margin-top: 40px;
+    padding: 26px 30px;
+    border: 1px solid var(--line);
+    background: var(--card);
+    border-radius: var(--r-xl);
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 22px;
+    align-items: center;
+    break-inside: avoid;
+  }
+  .band .seal {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #DBA76A 0%, var(--copper) 60%, var(--copper-deep) 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif); font-style: italic; font-size: 24px; color: #FBF8F2;
+    flex-shrink: 0;
+  }
+  .band h3 {
+    font-family: var(--serif);
+    font-size: 18px;
+    margin-bottom: 3px;
+  }
+  .band p { font-size: 12px; color: var(--ink-mute); margin: 0; }
+  .band .signature {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink-2);
+    text-align: right;
+    line-height: 1.4;
+  }
+  .band .signature small {
+    display: block;
+    font-family: var(--mono);
+    font-size: 9px;
+    color: var(--ink-mute);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-top: 3px;
+    font-style: normal;
+  }
+
+  /* Tags */
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+    background: var(--card);
+  }
+  .tag.copper { color: var(--copper); border-color: var(--copper); background: var(--copper-tint); }
+  .tag.sage   { color: var(--sage); border-color: var(--sage); background: var(--sage-tint); }
+  .tag.gold   { color: #6E5424; border-color: var(--gold); background: var(--gold-tint); }
+
+  .eyebrow {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .eyebrow.copper { color: var(--copper); }
+
+  .wordmark {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 7px;
+    font-family: var(--serif);
+    font-size: 18px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .wordmark .mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: var(--copper);
+    color: var(--card);
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 13px;
+    transform: translateY(2px);
+  }
+  .wordmark .name em { font-style: italic; color: var(--copper); }
+</style>
+</head>
+<body>
+<main class="cover">
+
+  <header class="cover-head">
+    <div class="wordmark">
+      <span class="mark">L</span>
+      <span class="name">Lead<em>oro</em></span>
+    </div>
+    <div class="meta">
+      <span>Edition<b>01 · 2026</b></span>
+      <span>Volume<b>Sales Kit</b></span>
+      <span>Documents<b>Five</b></span>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div>
+      <div class="eyebrow copper" style="margin-bottom:16px">The Leadoro Sales Kit</div>
+      <h1>
+        Turn cold<br/>
+        inquiries into<br/>
+        <span class="italic">booked revenue.</span>
+      </h1>
+      <p class="subtitle">
+        A complete operating kit for selling AI WhatsApp lead-conversion systems — from first DM to signed retainer.
+      </p>
+    </div>
+    <aside class="lede">
+      <span class="label">A note before you begin</span>
+      Five documents. Each one earns its place in the sale. Use them in order — Offer to open the conversation, Demo to show the work, Outreach to keep the pipeline warm, the Call Script to close, and the Case Study to do it all over again.
+    </aside>
+  </section>
+
+  <section>
+    <div class="toc-head">
+      <h2>Contents</h2>
+      <span class="count">Five Documents</span>
+    </div>
+
+    <nav class="toc">
+
+      <a href="01-offer.html">
+        <span class="num">01</span>
+        <div>
+          <div class="title">The Offer</div>
+          <div class="audience"><span class="tag copper">Client-facing</span></div>
+        </div>
+        <div class="desc">A single-page summary of what Leadoro builds, how it works, and what it costs. The thing you send before the call.</div>
+        <span class="arrow">
+          <svg viewBox="0 0 28 12" fill="none"><path d="M0 6 H26 M20 0 L26 6 L20 12" stroke="currentColor" stroke-width="1.2"/></svg>
+        </span>
+      </a>
+
+      <a href="02-demo.html">
+        <span class="num">02</span>
+        <div>
+          <div class="title">The Demo Flow</div>
+          <div class="audience"><span class="tag">Internal</span><span class="tag gold">Build spec</span></div>
+        </div>
+        <div class="desc">The exact WhatsApp conversation we demo — annotated for the Loom walkthrough and the n8n build.</div>
+        <span class="arrow">
+          <svg viewBox="0 0 28 12" fill="none"><path d="M0 6 H26 M20 0 L26 6 L20 12" stroke="currentColor" stroke-width="1.2"/></svg>
+        </span>
+      </a>
+
+      <a href="03-outreach.html">
+        <span class="num">03</span>
+        <div>
+          <div class="title">Outreach Templates</div>
+          <div class="audience"><span class="tag copper">Sales</span></div>
+        </div>
+        <div class="desc">Cold DM, cold email, and the two follow-ups that bring most of the replies. Copy, paste, customize, send.</div>
+        <span class="arrow">
+          <svg viewBox="0 0 28 12" fill="none"><path d="M0 6 H26 M20 0 L26 6 L20 12" stroke="currentColor" stroke-width="1.2"/></svg>
+        </span>
+      </a>
+
+      <a href="04-call-script.html">
+        <span class="num">04</span>
+        <div>
+          <div class="title">The Call Script</div>
+          <div class="audience"><span class="tag">Internal</span></div>
+        </div>
+        <div class="desc">Discovery, pitch, objections, close. A consultative framework — not a script to read verbatim.</div>
+        <span class="arrow">
+          <svg viewBox="0 0 28 12" fill="none"><path d="M0 6 H26 M20 0 L26 6 L20 12" stroke="currentColor" stroke-width="1.2"/></svg>
+        </span>
+      </a>
+
+      <a href="05-case-study.html">
+        <span class="num">05</span>
+        <div>
+          <div class="title">Case Study Template</div>
+          <div class="audience"><span class="tag copper">Client-facing</span><span class="tag sage">Portfolio</span></div>
+        </div>
+        <div class="desc">Fill in after every client. Becomes a LinkedIn post, a portfolio card, and a proof point for the next pitch.</div>
+        <span class="arrow">
+          <svg viewBox="0 0 28 12" fill="none"><path d="M0 6 H26 M20 0 L26 6 L20 12" stroke="currentColor" stroke-width="1.2"/></svg>
+        </span>
+      </a>
+
+    </nav>
+  </section>
+
+  <section class="band">
+    <div class="seal">L</div>
+    <div>
+      <h3>One philosophy across all five documents.</h3>
+      <p>Speed wins the lead. Qualification wins the time. Follow-up wins the deal. Everything inside this kit serves that order.</p>
+    </div>
+    <div class="signature">
+      Leadoro<br/>
+      <small>Lead-to-Revenue Automation</small>
+    </div>
+  </section>
+
+</main>
+
+<script>
+  document.fonts.ready.then(function() {
+    setTimeout(function() { window.print(); }, 500);
+  });
+</script>
+</body>
+</html>
