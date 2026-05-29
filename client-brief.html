@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Client Brief — Leadoro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+/* ─── Design tokens ─── */
+:root {
+  --paper:       #F4EFE6;
+  --paper-soft:  #EDE6D6;
+  --card:        #FBF8F2;
+  --white:       #FFFFFF;
+  --line:        #E5DCC9;
+  --line-strong: #C9BCA0;
+  --ink:         #1A1612;
+  --ink-2:       #3E3830;
+  --ink-mute:    #7A7064;
+  --ink-faint:   #A89E8E;
+  --copper:      #B8612D;
+  --copper-deep: #8B4520;
+  --copper-tint: #F2E2D2;
+  --gold:        #B89559;
+  --serif: 'Instrument Serif', Georgia, serif;
+  --sans:  'Geist', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  --mono:  'JetBrains Mono', 'SF Mono', Menlo, monospace;
+  --r-md: 8px;
+  --r-lg: 14px;
+  --r-xl: 22px;
+  --shadow-sm: 0 1px 2px rgba(74,56,32,.04), 0 1px 1px rgba(74,56,32,.06);
+  --shadow-md: 0 4px 16px rgba(74,56,32,.06), 0 1px 3px rgba(74,56,32,.08);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body {
+  margin: 0; padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+h1, h2, h3, h4 { margin: 0; font-weight: 400; }
+p { margin: 0; }
+a { color: var(--copper); text-decoration: none; }
+a:hover { color: var(--copper-deep); }
+
+/* ─── Page ─── */
+.page {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 56px 72px 80px;
+  position: relative;
+}
+@media (max-width: 700px) { .page { padding: 40px 24px 64px; } }
+
+/* ─── Page header ─── */
+.page-head {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  padding-bottom: 28px; margin-bottom: 48px; border-bottom: 1px solid var(--line);
+}
+.wordmark {
+  display: inline-flex; align-items: baseline; gap: 8px;
+  font-family: var(--serif); font-size: 22px; letter-spacing: -0.01em; color: var(--ink);
+}
+.wordmark .mark {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 26px; height: 26px; border-radius: 50%;
+  background: var(--copper); color: var(--card);
+  font-family: var(--serif); font-style: italic; font-size: 16px;
+  transform: translateY(2px); box-shadow: inset 0 -2px 4px rgba(0,0,0,.18);
+}
+.wordmark .name em { font-style: italic; color: var(--copper); font-weight: 400; }
+.page-meta {
+  text-align: right; font-size: 12px; color: var(--ink-mute);
+  letter-spacing: .04em; line-height: 1.7;
+}
+.doc-no {
+  display: inline-block; font-family: var(--mono); font-size: 10px;
+  color: var(--copper); letter-spacing: .18em; text-transform: uppercase; margin-bottom: 2px;
+}
+.mute { color: var(--ink-mute); }
+
+/* ─── Eyebrow ─── */
+.eyebrow {
+  font-family: var(--sans); font-size: 11px; font-weight: 500;
+  letter-spacing: .18em; text-transform: uppercase; color: var(--ink-mute);
+}
+.eyebrow.copper { color: var(--copper); }
+
+/* ─── Buttons ─── */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 18px; background: var(--copper); color: var(--card);
+  border: 1px solid var(--copper); border-radius: 999px;
+  font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: .01em;
+  cursor: pointer; transition: all .15s ease; text-decoration: none;
+}
+.btn:hover { background: var(--copper-deep); border-color: var(--copper-deep); color: var(--card); }
+.btn.ghost { background: transparent; color: var(--ink); border-color: var(--line-strong); }
+.btn.ghost:hover { background: var(--card); color: var(--ink); }
+.rule { height: 1px; background: var(--line); border: 0; margin: 22px 0; }
+
+/* ─── HERO ─── */
+.hero { margin-bottom: 56px; }
+.hero .headline {
+  font-family: var(--serif); font-size: 72px; line-height: .96;
+  letter-spacing: -.028em; margin-top: 24px;
+}
+.hero .headline em { font-style: italic; color: var(--copper); }
+.hero .sub {
+  font-family: var(--serif); font-style: italic; font-size: 22px; line-height: 1.45;
+  color: var(--ink-2); max-width: 660px; margin-top: 28px;
+}
+@media (max-width: 700px) {
+  .hero .headline { font-size: 44px; }
+  .hero .sub { font-size: 18px; }
+}
+
+/* ─── OPPORTUNITY ─── */
+.opp {
+  display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: start;
+  padding: 36px 0 16px; margin: 24px 0 52px;
+  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+}
+.opp h2 { font-family: var(--serif); font-size: 36px; line-height: 1.05; letter-spacing: -.018em; padding: 18px 0; }
+.opp h2 em { font-style: italic; color: var(--copper); }
+.opp .body { padding: 18px 0; border-left: 1px solid var(--line); padding-left: 32px; }
+.opp p { font-size: 15px; line-height: 1.7; color: var(--ink-2); margin: 0 0 14px; }
+.opp .stat { font-family: var(--serif); font-style: italic; font-size: 56px; line-height: 1; color: var(--copper); margin-bottom: 6px; }
+.opp .stat-label { font-size: 12px; color: var(--ink-mute); letter-spacing: .06em; }
+@media (max-width: 700px) {
+  .opp { grid-template-columns: 1fr; gap: 0; }
+  .opp .body { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); }
+  .opp .stat { font-size: 42px; }
+}
+
+/* ─── SOLUTION ─── */
+.solution { margin-bottom: 52px; }
+.solution h2 { font-family: var(--serif); font-size: 32px; margin-bottom: 14px; }
+.solution h2 em { font-style: italic; color: var(--copper); }
+.solution p { font-size: 16px; line-height: 1.7; color: var(--ink-2); max-width: 680px; }
+
+/* ─── STEPS ─── */
+.steps { margin: 0 0 64px; }
+.steps-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 28px; }
+.steps-head h3 { font-family: var(--serif); font-size: 28px; }
+.steps-head .ix {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--ink-mute);
+}
+.step-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+  border-top: 1px solid var(--line); border-left: 1px solid var(--line);
+}
+.step {
+  border-right: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  padding: 24px 22px 26px; background: var(--card); position: relative; min-height: 180px;
+}
+.step .num { font-family: var(--mono); font-size: 11px; color: var(--copper); letter-spacing: .2em; margin-bottom: 18px; }
+.step h4 { font-family: var(--serif); font-size: 26px; letter-spacing: -.01em; margin-bottom: 10px; }
+.step p { font-size: 13px; line-height: 1.55; color: var(--ink-mute); margin: 0; }
+.step .icon { position: absolute; top: 22px; right: 22px; width: 22px; height: 22px; color: var(--copper); opacity: .85; }
+@media (max-width: 700px) { .step-grid { grid-template-columns: 1fr 1fr; } }
+
+/* ─── BENEFITS ─── */
+.benefits { margin-bottom: 64px; }
+.benefits h3 { font-family: var(--serif); font-size: 28px; margin-bottom: 22px; }
+.benefit-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0 48px; }
+.benefit-list .item {
+  display: grid; grid-template-columns: 36px 1fr; gap: 14px;
+  padding: 16px 0; border-bottom: 1px solid var(--line); align-items: start;
+}
+.benefit-list .item .n { font-family: var(--mono); font-size: 11px; color: var(--copper); letter-spacing: .14em; padding-top: 3px; }
+.benefit-list .item .t { font-size: 14px; color: var(--ink); line-height: 1.45; }
+.benefit-list .item .t small { display: block; color: var(--ink-mute); font-size: 12px; margin-top: 3px; }
+@media (max-width: 700px) { .benefit-list { grid-template-columns: 1fr; } }
+
+/* ─── WHO ─── */
+.who {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--r-xl);
+  padding: 32px 36px; margin-bottom: 52px;
+  display: grid; grid-template-columns: 1fr 1.4fr; gap: 40px; align-items: center;
+}
+.who h3 { font-family: var(--serif); font-size: 28px; line-height: 1.1; }
+.who h3 em { font-style: italic; color: var(--copper); }
+.who .industries { display: flex; flex-wrap: wrap; gap: 8px; }
+.industries .pill {
+  background: var(--paper); border: 1px solid var(--line); padding: 8px 14px;
+  border-radius: 999px; font-size: 13px; color: var(--ink-2);
+}
+.who .qualifier { font-size: 13px; color: var(--ink-mute); margin-top: 14px; font-style: italic; }
+@media (max-width: 700px) { .who { grid-template-columns: 1fr; } }
+
+/* ─── CTA ─── */
+.cta {
+  text-align: center; padding: 56px 40px;
+  border: 1px solid var(--line); border-radius: var(--r-xl);
+  background:
+    radial-gradient(circle at 20% 0%, rgba(184,97,45,.06), transparent 60%),
+    radial-gradient(circle at 80% 100%, rgba(184,149,89,.08), transparent 60%),
+    var(--card);
+}
+.cta .eyebrow { margin-bottom: 16px; }
+.cta h3 { font-family: var(--serif); font-size: 44px; line-height: 1.05; letter-spacing: -.02em; margin-bottom: 14px; }
+.cta h3 em { font-style: italic; color: var(--copper); }
+.cta p { font-size: 15px; color: var(--ink-mute); max-width: 480px; margin: 0 auto 28px; }
+.cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.cta-btns .btn { padding: 14px 24px; font-size: 14px; }
+@media (max-width: 700px) {
+  .cta { padding: 40px 24px; }
+  .cta h3 { font-size: 32px; }
+}
+
+/* ─── Page footer ─── */
+.page-foot {
+  margin-top: 80px; padding-top: 28px; border-top: 1px solid var(--line);
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 12px; color: var(--ink-mute); letter-spacing: .03em;
+}
+.mono { font-family: var(--mono); font-size: .86em; }
+
+/* ─── Back nav ─── */
+.topnav { position: fixed; top: 24px; left: 24px; z-index: 10; }
+.topnav a {
+  font-family: var(--mono); font-size: 11px; color: var(--ink-mute);
+  background: var(--card); border: 1px solid var(--line);
+  padding: 8px 14px; border-radius: 999px; letter-spacing: .1em; text-transform: uppercase;
+}
+.topnav a:hover { color: var(--copper); border-color: var(--copper); }
+
+/* ─── Print ─── */
+@media print {
+  @page { size: A4 portrait; margin: 12mm; }
+  html, body { background: #fff !important; }
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  .topnav { display: none !important; }
+  .page { padding: 0 !important; max-width: 100% !important; }
+  .step, .who, .cta { break-inside: avoid; }
+  .steps, .benefits, .opp, .hero, .solution { break-inside: avoid; }
+  section { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<div class="topnav no-print">
+  <a href="index.html">← Leadoro</a>
+</div>
+
+<main class="page">
+
+  <header class="page-head">
+    <div class="wordmark">
+      <span class="mark">L</span>
+      <span class="name">Lead<em>oro</em></span>
+    </div>
+    <div class="page-meta">
+      <span class="doc-no">Client Brief</span><br/>
+      Lead-to-Revenue Automation<br/>
+      <span class="mute">Single-page overview</span>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="eyebrow copper">Prepared for your business</div>
+    <h1 class="headline">
+      Every lead you ignore<br/>
+      is <em>money your</em><br/>
+      <em>competitor keeps.</em>
+    </h1>
+    <p class="sub">
+      Leadoro builds AI-powered systems that respond in seconds, qualify every prospect, and book appointments — automatically, around the clock.
+    </p>
+  </section>
+
+  <!-- OPPORTUNITY COST -->
+  <section class="opp">
+    <div>
+      <div class="eyebrow" style="margin-bottom:10px">The cost of waiting</div>
+      <h2>You already paid for the lead. <em>Then you lose it.</em></h2>
+    </div>
+    <div class="body">
+      <div class="stat">60–70%</div>
+      <div class="stat-label">of inquiries are lost to slow response time.</div>
+      <hr class="rule"/>
+      <p>
+        The money is already spent — on ads, on referrals, on traffic. The leak isn't at the top of the funnel. It's the gap between a lead arriving and someone replying.
+      </p>
+      <p>
+        A lead that messages at 9pm and hears nothing until morning has already messaged your competitor. Every hour of silence is a sale quietly handed away.
+      </p>
+    </div>
+  </section>
+
+  <!-- SOLUTION INTRO -->
+  <section class="solution">
+    <div class="eyebrow copper" style="margin-bottom:14px">The opportunity</div>
+    <h2>One system. <em>Zero missed leads.</em></h2>
+    <p>
+      A fully automated pipeline that takes every inquiry from first message to confirmed booking — no lead ignored, no follow-up forgotten. Your team is only pulled in once a lead is warm and ready to talk.
+    </p>
+  </section>
+
+  <!-- SIX STEPS -->
+  <section class="steps">
+    <div class="steps-head">
+      <h3>How it works.</h3>
+      <span class="ix">Six steps · Fully automated</span>
+    </div>
+    <div class="step-grid">
+
+      <div class="step">
+        <div class="num">01 · CAPTURE</div>
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true">
+          <path d="M3 7L12 13L21 7"/><rect x="3" y="5" width="18" height="14" rx="2"/>
+        </svg>
+        <h4>Capture</h4>
+        <p>Every inquiry — from chat, social, ads, or your website — lands in one place.</p>
+      </div>
+
+      <div class="step">
+        <div class="num">02 · ENGAGE</div>
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true">
+          <circle cx="12" cy="12" r="9"/><path d="M12 7V12L15 14"/>
+        </svg>
+        <h4>Engage</h4>
+        <p>The AI replies within seconds — twenty-four hours a day, no human required.</p>
+      </div>
+
+      <div class="step">
+        <div class="num">03 · QUALIFY</div>
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true">
+          <path d="M9 11L11 13L15 9"/><circle cx="12" cy="12" r="9"/>
+        </svg>
+        <h4>Qualify</h4>
+        <p>Smart questions surface need, urgency, and intent — so you only see warm leads.</p>
+      </div>
+
+      <div class="step">
+        <div class="num">04 · NURTURE</div>
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true">
+          <path d="M4 7L12 12L20 7M4 12L12 17L20 12"/>
+        </svg>
+        <h4>Nurture</h4>
+        <p>Automated follow-ups keep the conversation alive until the lead is ready to buy.</p>
+      </div>
+
+      <div class="step">
+        <div class="num">05 · CONVERT</div>
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true">
+          <rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10H21M8 3V7M16 3V7"/>
+        </svg>
+        <h4>Convert</h4>
+        <p>Appointment booked and reminders delivered — entirely on autopilot.</p>
+      </div>
+
+      <div class="step">
+        <div class="num">06 · GROW</div>
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true">
+          <path d="M3 17L9 11L13 15L21 7M21 7H15M21 7V13"/>
+        </svg>
+        <h4>Grow</h4>
+        <p>Every interaction logged, and dormant leads re-engaged — revenue compounds.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section class="benefits">
+    <h3>What it means for you.</h3>
+    <div class="benefit-list">
+      <div class="item"><span class="n">01</span><div class="t">Never miss a lead again<small>Every inquiry answered in seconds, day or night.</small></div></div>
+      <div class="item"><span class="n">02</span><div class="t">Win the speed race<small>Reply first, before a prospect reaches a competitor.</small></div></div>
+      <div class="item"><span class="n">03</span><div class="t">Free your team<small>No more manual chasing of cold inquiries.</small></div></div>
+      <div class="item"><span class="n">04</span><div class="t">More booked appointments<small>Qualified, ready-to-buy leads on the calendar.</small></div></div>
+      <div class="item"><span class="n">05</span><div class="t">Higher return on ad spend<small>Convert the traffic you already pay for.</small></div></div>
+      <div class="item"><span class="n">06</span><div class="t">Works around the clock<small>A pipeline that runs at nights and weekends.</small></div></div>
+    </div>
+  </section>
+
+  <!-- WHO IT'S FOR -->
+  <section class="who">
+    <div>
+      <div class="eyebrow" style="margin-bottom:12px">Built for</div>
+      <h3>Service businesses that <em>can't afford to lose leads.</em></h3>
+      <p class="qualifier">Best fit: 20+ inquiries / month.</p>
+    </div>
+    <div>
+      <div class="industries">
+        <span class="pill">Clinics</span>
+        <span class="pill">Hotels</span>
+        <span class="pill">Real Estate</span>
+        <span class="pill">Gyms</span>
+        <span class="pill">Salons</span>
+        <span class="pill">&amp; many more</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="eyebrow copper">Next step</div>
+    <h3>Ready to stop <em>losing leads?</em></h3>
+    <p>Book a free discovery call — or watch a walkthrough of the exact system, built for a business like yours.</p>
+    <div class="cta-btns">
+      <a class="btn" href="https://cal.com/taiye-kotiku/discovery-call" target="_blank" rel="noopener">
+        Book a Free Discovery Call
+        <svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true"><path d="M0 5H12M9 1L13 5L9 9" stroke="currentColor" stroke-width="1.4"/></svg>
+      </a>
+      <a class="btn ghost" href="https://cal.com/taiye-kotiku/system-walkthrough" target="_blank" rel="noopener">Book a System Walkthrough</a>
+    </div>
+  </section>
+
+  <footer class="page-foot">
+    <span>Leadoro · Lead-to-Revenue Automation</span>
+    <span class="mono">Client Brief · 2026</span>
+  </footer>
+
+</main>
+
+</body>
+</html>

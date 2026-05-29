@@ -1,0 +1,811 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Client Onboarding — Leadoro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+/* ─── Design tokens ─── */
+:root {
+  --paper:       #F4EFE6;
+  --paper-soft:  #EDE6D6;
+  --card:        #FBF8F2;
+  --line:        #E5DCC9;
+  --line-strong: #C9BCA0;
+  --ink:         #1A1612;
+  --ink-2:       #3E3830;
+  --ink-mute:    #7A7064;
+  --ink-faint:   #A89E8E;
+  --copper:      #B8612D;
+  --copper-deep: #8B4520;
+  --sage:        #5F7A5A;
+  --serif: 'Instrument Serif', Georgia, serif;
+  --sans:  'Geist', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  --mono:  'JetBrains Mono', 'SF Mono', Menlo, monospace;
+  --r-md: 8px;
+  --r-lg: 14px;
+  --r-xl: 22px;
+  --shadow-md: 0 4px 16px rgba(74,56,32,.06), 0 1px 3px rgba(74,56,32,.08);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body {
+  margin: 0; padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+h1, h2, h3 { margin: 0; font-weight: 400; }
+p { margin: 0; }
+a { color: var(--copper); text-decoration: none; }
+a:hover { color: var(--copper-deep); }
+
+/* ─── Page ─── */
+.page {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 56px 72px 120px;
+  position: relative;
+}
+@media (max-width: 720px) { .page { padding: 48px 24px 120px; } }
+
+/* ─── Page header ─── */
+.page-head {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  padding-bottom: 28px; margin-bottom: 48px; border-bottom: 1px solid var(--line);
+}
+.wordmark {
+  display: inline-flex; align-items: baseline; gap: 8px;
+  font-family: var(--serif); font-size: 22px; letter-spacing: -0.01em; color: var(--ink);
+}
+.wordmark .mark {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 26px; height: 26px; border-radius: 50%;
+  background: var(--copper); color: var(--card);
+  font-family: var(--serif); font-style: italic; font-size: 16px;
+  transform: translateY(2px); box-shadow: inset 0 -2px 4px rgba(0,0,0,.18);
+}
+.wordmark .name em { font-style: italic; color: var(--copper); font-weight: 400; }
+.page-meta {
+  text-align: right; font-size: 12px; color: var(--ink-mute);
+  letter-spacing: .04em; line-height: 1.7;
+}
+.doc-no {
+  display: inline-block; font-family: var(--mono); font-size: 10px;
+  color: var(--copper); letter-spacing: .18em; text-transform: uppercase; margin-bottom: 2px;
+}
+.mute { color: var(--ink-mute); }
+
+/* ─── Eyebrow ─── */
+.eyebrow {
+  font-family: var(--sans); font-size: 11px; font-weight: 500;
+  letter-spacing: .18em; text-transform: uppercase; color: var(--ink-mute);
+}
+.eyebrow.copper { color: var(--copper); }
+
+/* ─── Buttons ─── */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 18px; background: var(--copper); color: var(--card);
+  border: 1px solid var(--copper); border-radius: 999px;
+  font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: .01em;
+  cursor: pointer; transition: all .15s ease; text-decoration: none;
+}
+.btn:hover { background: var(--copper-deep); border-color: var(--copper-deep); color: var(--card); }
+.btn.ghost { background: transparent; color: var(--ink); border-color: var(--line-strong); }
+.btn.ghost:hover { background: var(--card); color: var(--ink); }
+
+/* ─── WELCOME ─── */
+.welcome { margin-bottom: 52px; }
+.welcome .headline {
+  font-family: var(--serif); font-size: 60px; line-height: .98;
+  letter-spacing: -.028em; margin-top: 22px;
+}
+.welcome .headline em { font-style: italic; color: var(--copper); }
+.welcome p { font-size: 16px; line-height: 1.7; color: var(--ink-2); max-width: 640px; margin: 24px 0 0; }
+.welcome .howto { margin-top: 22px; font-style: italic; font-family: var(--serif); font-size: 18px; color: var(--ink-mute); }
+@media (max-width: 720px) { .welcome .headline { font-size: 40px; } }
+
+/* ─── Sections ─── */
+.sec { margin-bottom: 46px; }
+.sec-head {
+  display: flex; align-items: baseline; gap: 16px;
+  padding-bottom: 14px; margin-bottom: 26px; border-bottom: 1px solid var(--line);
+}
+.sec-head .no {
+  font-family: var(--mono); font-size: 12px; letter-spacing: .2em;
+  color: var(--copper); flex-shrink: 0;
+}
+.sec-head h2 { font-family: var(--serif); font-size: 30px; letter-spacing: -.018em; }
+.sec-note { font-size: 14px; line-height: 1.65; color: var(--ink-mute); margin: -10px 0 22px; max-width: 640px; }
+
+/* ─── Inputs ─── */
+.ipt {
+  width: 100%; border: 0; border-bottom: 1px solid var(--line-strong);
+  background: transparent; font-family: var(--sans); font-size: 14.5px;
+  color: var(--ink); padding: 6px 2px; line-height: 1.5;
+}
+.ipt::placeholder { color: var(--ink-faint); }
+.ipt:focus { outline: none; border-bottom-color: var(--copper); box-shadow: 0 1px 0 0 var(--copper); }
+textarea.ipt {
+  border: 1px solid var(--line-strong); border-radius: var(--r-md);
+  min-height: 54px; resize: vertical; padding: 10px 12px;
+}
+textarea.ipt:focus { border-color: var(--copper); box-shadow: none; }
+input[type=checkbox], input[type=radio] {
+  accent-color: var(--copper); width: 17px; height: 17px;
+  flex-shrink: 0; cursor: pointer; margin: 0;
+}
+
+/* ─── Field grid ─── */
+.fields { display: grid; grid-template-columns: 1fr 1fr; gap: 22px 40px; }
+.field { display: flex; flex-direction: column; gap: 8px; }
+.field .lab {
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--ink-mute);
+}
+.field.wide { grid-column: 1 / -1; }
+@media (max-width: 720px) { .fields { grid-template-columns: 1fr; } }
+
+/* ─── Checks / radios ─── */
+.checks { display: flex; flex-wrap: wrap; gap: 14px 28px; }
+.checks.col { flex-direction: column; gap: 14px; }
+.chk { display: flex; align-items: center; gap: 11px; font-size: 14.5px; color: var(--ink); cursor: pointer; }
+.chk.fill { width: 100%; }
+.chk .specify-ipt { flex: 1; min-width: 120px; }
+.chk .sub-note { color: var(--ink-mute); font-size: 12.5px; margin-left: 2px; }
+
+/* ─── YES / NO ─── */
+.yn { display: inline-flex; gap: 10px; align-items: center; }
+.yn .opt {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--mono); font-size: 11px; letter-spacing: .12em;
+  border: 1px solid var(--line-strong); border-radius: 999px;
+  padding: 8px 15px; color: var(--ink-2); cursor: pointer; transition: all .15s ease;
+}
+.yn .opt:hover { border-color: var(--copper); }
+.yn .opt input { width: 14px; height: 14px; }
+
+/* ─── Q/A blocks ─── */
+.qa { margin-bottom: 22px; }
+.qa .q { font-size: 15px; color: var(--ink); margin-bottom: 11px; line-height: 1.5; }
+.qa .q .hint { display: block; font-size: 12.5px; color: var(--ink-mute); font-style: italic; margin-top: 3px; }
+.qa .q .hint.inline { display: inline; }
+.num-lines { display: grid; gap: 14px; }
+.num-lines .nl { display: grid; grid-template-columns: 24px 1fr; align-items: center; gap: 10px; }
+.num-lines .nl .i { font-family: var(--serif); font-style: italic; font-size: 20px; color: var(--copper); }
+
+/* ─── Sub-block ─── */
+.subblock {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--r-lg);
+  padding: 20px 24px; margin-top: 16px;
+}
+.subblock .sb-title {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--copper); margin-bottom: 14px;
+}
+
+/* ─── Days grid ─── */
+.days { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 40px; }
+.day { display: grid; grid-template-columns: 104px 1fr; align-items: center; gap: 12px; }
+.day .dn { font-size: 14px; color: var(--ink-2); }
+@media (max-width: 720px) { .days { grid-template-columns: 1fr; } }
+
+/* ─── Timeline ─── */
+.timeline { display: grid; gap: 0; border-top: 1px solid var(--line); }
+.tl-row {
+  display: grid; grid-template-columns: 130px 1fr; gap: 24px; align-items: baseline;
+  padding: 16px 0; border-bottom: 1px solid var(--line);
+}
+.tl-row .when {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .1em; color: var(--copper); text-transform: uppercase;
+}
+.tl-row .what { font-size: 14.5px; color: var(--ink); line-height: 1.5; }
+.tl-total { margin-top: 18px; font-family: var(--serif); font-style: italic; font-size: 20px; color: var(--ink); }
+.tl-total b { color: var(--copper); font-style: normal; font-weight: 400; }
+
+/* ─── Need-from-you ─── */
+.need-list { display: grid; gap: 0; }
+.need-list .ni {
+  display: grid; grid-template-columns: 17px 1fr; gap: 14px; align-items: start;
+  padding: 15px 0; border-bottom: 1px solid var(--line); font-size: 14.5px; color: var(--ink); line-height: 1.5; cursor: pointer;
+}
+.need-list .ni input { margin-top: 2px; }
+
+/* ─── Packages ─── */
+.pkgs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.pkg {
+  border: 1px solid var(--line-strong); border-radius: var(--r-lg); padding: 20px;
+  display: flex; gap: 12px; align-items: flex-start; background: var(--card); cursor: pointer; transition: all .15s ease;
+}
+.pkg:has(input:checked) { border-color: var(--copper); box-shadow: var(--shadow-md); }
+.pkg input { margin-top: 3px; }
+.pkg .pk-name { font-family: var(--serif); font-size: 22px; line-height: 1; }
+.pkg .pk-price { font-size: 12.5px; color: var(--ink-mute); margin-top: 6px; line-height: 1.5; }
+@media (max-width: 720px) { .pkgs { grid-template-columns: 1fr; } }
+
+/* ─── Important notes ─── */
+.notes {
+  background: #20140C; color: #E7DCCB; border-radius: var(--r-xl);
+  padding: 34px 38px; margin-bottom: 46px;
+}
+.notes .eyebrow { color: #D9A45C; margin-bottom: 18px; }
+.notes ul { list-style: none; padding: 0; margin: 0; }
+.notes li {
+  font-size: 14.5px; line-height: 1.6; padding: 10px 0 10px 24px;
+  position: relative; border-bottom: 1px solid #3A2A1C;
+}
+.notes li:last-child { border-bottom: 0; }
+.notes li::before {
+  content: ''; position: absolute; left: 0; top: 19px;
+  width: 11px; height: 1px; background: #D9A45C;
+}
+
+/* ─── Contact ─── */
+.contact { display: grid; grid-template-columns: 1fr 1fr; gap: 22px 40px; margin-bottom: 10px; }
+@media (max-width: 720px) { .contact { grid-template-columns: 1fr; } }
+
+/* ─── Sign-off ─── */
+.signoff {
+  text-align: center; padding: 44px 30px;
+  border: 1px solid var(--line); border-radius: var(--r-xl); margin-bottom: 40px;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(184,97,45,.06), transparent 60%),
+    radial-gradient(circle at 80% 100%, rgba(184,149,89,.08), transparent 60%),
+    var(--card);
+}
+.signoff h3 { font-family: var(--serif); font-size: 36px; letter-spacing: -.02em; margin-bottom: 10px; }
+.signoff h3 em { font-style: italic; color: var(--copper); }
+.signoff p { font-size: 15px; color: var(--ink-mute); max-width: 440px; margin: 0 auto; }
+
+/* ─── Page footer ─── */
+.page-foot {
+  margin-top: 80px; padding-top: 28px; border-top: 1px solid var(--line);
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 12px; color: var(--ink-mute); letter-spacing: .03em;
+}
+.mono { font-family: var(--mono); font-size: .86em; }
+
+/* ─── Submit bar ─── */
+.submit-bar {
+  position: sticky; bottom: 0; z-index: 20;
+  margin: 48px -72px -120px; padding: 20px 72px;
+  background: rgba(244,239,230,.94); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid var(--line-strong);
+  display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+}
+.submit-bar .status {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .04em; color: var(--ink-mute); transition: color .2s ease;
+}
+.submit-bar .status.on { color: var(--sage); }
+.sub-btns { display: flex; gap: 10px; flex-wrap: wrap; }
+.sub-btns .btn { padding: 12px 20px; font-size: 13px; }
+.sub-btns svg { width: 15px; height: 15px; }
+@media (max-width: 720px) {
+  .submit-bar { margin: 40px -24px -120px; padding: 16px 24px; }
+}
+
+/* ─── Back nav ─── */
+.topnav { position: fixed; top: 24px; left: 24px; z-index: 30; }
+.topnav a {
+  font-family: var(--mono); font-size: 11px; color: var(--ink-mute);
+  background: var(--card); border: 1px solid var(--line);
+  padding: 8px 14px; border-radius: 999px; letter-spacing: .1em; text-transform: uppercase;
+}
+.topnav a:hover { color: var(--copper); border-color: var(--copper); }
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <a href="index.html">← Leadoro</a>
+</div>
+
+<main class="page">
+
+  <header class="page-head">
+    <div class="wordmark">
+      <span class="mark">L</span>
+      <span class="name">Lead<em>oro</em></span>
+    </div>
+    <div class="page-meta">
+      <span class="doc-no">Onboarding</span><br/>
+      Client Onboarding Form<br/>
+      <span class="mute">Fill in &amp; send back</span>
+    </div>
+  </header>
+
+  <!-- WELCOME -->
+  <section class="welcome">
+    <div class="eyebrow copper">Welcome to Leadoro</div>
+    <h1 class="headline">Let's get your system <em>live.</em></h1>
+    <p>
+      Congratulations on taking the step to automate your lead flow. This form covers everything we need to get your system live as fast as possible.
+    </p>
+    <p class="howto">Fill in each section below — your answers save as you type. When you're done, send them back with the buttons at the bottom.</p>
+  </section>
+
+  <form id="onboardForm" autocomplete="on">
+
+    <!-- 01 BUSINESS INFO -->
+    <section class="sec">
+      <div class="sec-head"><span class="no">01</span><h2>Business information</h2></div>
+      <div class="fields">
+        <div class="field"><span class="lab">Business name</span><input class="ipt" type="text" name="biz_name"/></div>
+        <div class="field"><span class="lab">Business type (clinic, hotel, gym…)</span><input class="ipt" type="text" name="biz_type"/></div>
+        <div class="field"><span class="lab">Location (city, country)</span><input class="ipt" type="text" name="biz_location"/></div>
+        <div class="field"><span class="lab">Website URL (if any)</span><input class="ipt" type="text" name="biz_website"/></div>
+        <div class="field"><span class="lab">Instagram handle</span><input class="ipt" type="text" name="biz_instagram"/></div>
+        <div class="field"><span class="lab">Facebook page</span><input class="ipt" type="text" name="biz_facebook"/></div>
+        <div class="field"><span class="lab">Primary contact name</span><input class="ipt" type="text" name="contact_name"/></div>
+        <div class="field"><span class="lab">Contact WhatsApp number</span><input class="ipt" type="text" name="contact_whatsapp"/></div>
+        <div class="field wide"><span class="lab">Contact email</span><input class="ipt" type="email" name="contact_email"/></div>
+      </div>
+    </section>
+
+    <!-- 02 LEAD SOURCES -->
+    <section class="sec">
+      <div class="sec-head"><span class="no">02</span><h2>Lead sources</h2></div>
+      <div class="qa" style="margin-bottom:0">
+        <div class="q">Where do most of your leads come from? Tick all that apply.</div>
+        <div class="checks">
+          <label class="chk"><input type="checkbox" name="lead_sources" value="WhatsApp"/>WhatsApp</label>
+          <label class="chk"><input type="checkbox" name="lead_sources" value="Instagram DMs"/>Instagram DMs</label>
+          <label class="chk"><input type="checkbox" name="lead_sources" value="Facebook Ads / DMs"/>Facebook Ads / DMs</label>
+          <label class="chk"><input type="checkbox" name="lead_sources" value="Google Search / Ads"/>Google Search / Ads</label>
+          <label class="chk"><input type="checkbox" name="lead_sources" value="Website contact form"/>Website contact form</label>
+          <label class="chk"><input type="checkbox" name="lead_sources" value="Referrals"/>Referrals</label>
+          <label class="chk"><input type="checkbox" name="lead_sources" value="Walk-ins"/>Walk-ins</label>
+          <label class="chk fill"><input type="checkbox" name="lead_sources" value="Other"/>Other:<input class="ipt specify-ipt" type="text" name="lead_sources_other"/></label>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 WHATSAPP SETUP -->
+    <section class="sec">
+      <div class="sec-head"><span class="no">03</span><h2>WhatsApp setup</h2></div>
+      <div class="qa">
+        <div class="q">Do you have a WhatsApp Business account?</div>
+        <div class="yn">
+          <label class="opt"><input type="radio" name="wa_account" value="YES"/>YES</label>
+          <label class="opt"><input type="radio" name="wa_account" value="NO"/>NO</label>
+        </div>
+      </div>
+      <div class="subblock">
+        <div class="sb-title">If yes</div>
+        <div class="qa"><div class="q">Is it on a dedicated business number or a personal number?</div><input class="ipt" type="text" name="wa_number_type"/></div>
+        <div class="qa" style="margin-bottom:0"><div class="q">Do you use the WhatsApp Business API, or just the app?</div><input class="ipt" type="text" name="wa_api"/></div>
+      </div>
+      <div class="qa" style="margin-top:22px;margin-bottom:0">
+        <div class="q">Preferred WhatsApp number to use for the system <span class="hint inline">(if no account yet, we'll help you set one up)</span></div>
+        <input class="ipt" type="text" name="wa_preferred"/>
+      </div>
+    </section>
+
+    <!-- 04 CURRENT LEAD FLOW -->
+    <section class="sec">
+      <div class="sec-head"><span class="no">04</span><h2>Current lead flow</h2></div>
+      <div class="qa"><div class="q">How fast does your team currently respond to new inquiries?<span class="hint">e.g. within 1 hour, same day, next day</span></div><input class="ipt" type="text" name="flow_response_time"/></div>
+      <div class="qa"><div class="q">What happens to leads that come in after hours or on weekends?</div><textarea class="ipt" name="flow_afterhours"></textarea></div>
+      <div class="qa">
+        <div class="q">Do you have any follow-up system in place currently?</div>
+        <div class="yn">
+          <label class="opt"><input type="radio" name="flow_has_followup" value="YES"/>YES</label>
+          <label class="opt"><input type="radio" name="flow_has_followup" value="NO"/>NO</label>
+        </div>
+      </div>
+      <div class="qa"><div class="q">If yes, please describe briefly</div><textarea class="ipt" name="flow_followup_desc"></textarea></div>
+      <div class="fields">
+        <div class="field"><span class="lab">Inquiries received per week (approx.)</span><input class="ipt" type="text" name="flow_volume"/></div>
+        <div class="field"><span class="lab">% that convert to bookings / sales</span><input class="ipt" type="text" name="flow_conversion"/></div>
+      </div>
+    </section>
+
+    <!-- 05 QUALIFICATION -->
+    <section class="sec">
+      <div class="sec-head"><span class="no">05</span><h2>Qualification questions</h2></div>
+      <p class="sec-note">These are the questions your AI agent will ask every new lead. We'll configure them around your business.</p>
+      <div class="qa">
+        <div class="q">The 3 most important things you need to know about a lead before accepting a booking:</div>
+        <div class="num-lines">
+          <div class="nl"><span class="i">1</span><input class="ipt" type="text" name="qual_1"/></div>
+          <div class="nl"><span class="i">2</span><input class="ipt" type="text" name="qual_2"/></div>
+          <div class="nl"><span class="i">3</span><input class="ipt" type="text" name="qual_3"/></div>
+        </div>
+      </div>
+      <div class="qa">
+        <div class="q">Do you have different services or packages?</div>
+        <div class="yn">
+          <label class="opt"><input type="radio" name="qual_has_services" value="YES"/>YES</label>
+          <label class="opt"><input type="radio" name="qual_has_services" value="NO"/>NO</label>
+        </div>
+      </div>
+      <div class="qa">
+        <div class="q">If yes, list them (with prices if relevant)</div>
+        <div class="num-lines">
+          <div class="nl"><span class="i">·</span><input class="ipt" type="text" name="qual_service_1"/></div>
+          <div class="nl"><span class="i">·</span><input class="ipt" type="text" name="qual_service_2"/></div>
+          <div class="nl"><span class="i">·</span><input class="ipt" type="text" name="qual_service_3"/></div>
+        </div>
+      </div>
+      <div class="qa" style="margin-bottom:0">
+        <div class="q">Is there a minimum budget a lead should have before booking?</div>
+        <div class="yn">
+          <label class="opt"><input type="radio" name="qual_min_budget" value="YES"/>YES</label>
+          <label class="opt"><input type="radio" name="qual_min_budget" value="NO"/>NO</label>
+        </div>
+        <input class="ipt" type="text" name="qual_min_budget_amount" placeholder="If yes, what is it?" style="margin-top:14px"/>
+      </div>
+    </section>
+
+    <!-- 06 BOOKING & CALENDAR -->
+    <section class="sec">
+      <div class="sec-head"><span class="no">06</span><h2>Booking &amp; calendar</h2></div>
+      <div class="qa"><div class="q">How do you currently book appointments?<span class="hint">e.g. phone call, WhatsApp, website form, Calendly</span></div><input class="ipt" type="text" name="book_method"/></div>
+      <div class="qa">
+        <div class="q">Do you use Google Calendar?</div>
+        <div class="yn">
+          <label class="opt"><input type="radio" name="book_gcal" value="YES"/>YES</label>
+          <label class="opt"><input type="radio" name="book_gcal" value="NO"/>NO</label>
+        </div>
+        <div class="q" style="margin-top:12px;font-size:13px;color:var(--ink-mute);font-style:italic">If yes, we connect directly for automatic booking. If no, we'll set one up or use an alternative.</div>
+      </div>
+      <div class="qa">
+        <div class="q">Available booking hours</div>
+        <div class="days">
+          <div class="day"><span class="dn">Monday</span><input class="ipt" type="text" name="hours_mon" placeholder="e.g. 9am – 6pm"/></div>
+          <div class="day"><span class="dn">Tuesday</span><input class="ipt" type="text" name="hours_tue" placeholder="e.g. 9am – 6pm"/></div>
+          <div class="day"><span class="dn">Wednesday</span><input class="ipt" type="text" name="hours_wed" placeholder="e.g. 9am – 6pm"/></div>
+          <div class="day"><span class="dn">Thursday</span><input class="ipt" type="text" name="hours_thu" placeholder="e.g. 9am – 6pm"/></div>
+          <div class="day"><span class="dn">Friday</span><input class="ipt" type="text" name="hours_fri" placeholder="e.g. 9am – 6pm"/></div>
+          <div class="day"><span class="dn">Saturday</span><input class="ipt" type="text" name="hours_sat" placeholder="Closed / hours"/></div>
+          <div class="day"><span class="dn">Sunday</span><input class="ipt" type="text" name="hours_sun" placeholder="Closed / hours"/></div>
+        </div>
+      </div>
+      <div class="qa"><div class="q">How long is each appointment / consultation?</div><input class="ipt" type="text" name="book_duration"/></div>
+      <div class="qa" style="margin-bottom:0">
+        <div class="q">Send automatic reminders before appointments?</div>
+        <div class="yn">
+          <label class="opt"><input type="radio" name="book_reminders" value="YES"/>YES</label>
+          <label class="opt"><input type="radio" name="book_reminders" value="NO"/>NO</label>
+        </div>
+        <div class="q" style="margin-top:12px">If yes, how many hours before? <span class="hint inline">e.g. 24 hours, 2 hours</span></div>
+        <input class="ipt" type="text" name="book_reminder_timing"/>
+      </div>
+    </section>
+
+    <!-- 07 FOLLOW-UP -->
+    <section class="sec">
+      <div class="sec-head"><span class="no">07</span><h2>Follow-up preferences</h2></div>
+      <div class="qa"><div class="q">How many follow-up messages should the system send to a lead who doesn't respond?<span class="hint">We recommend 3 — Day 1, Day 3, Day 7</span></div><input class="ipt" type="text" name="followup_count"/></div>
+      <div class="qa">
+        <div class="q">Follow-ups should be sent via:</div>
+        <div class="checks col">
+          <label class="chk"><input type="radio" name="followup_channels" value="WhatsApp only"/>WhatsApp only</label>
+          <label class="chk"><input type="radio" name="followup_channels" value="WhatsApp + Email"/>WhatsApp + Email</label>
+          <label class="chk"><input type="radio" name="followup_channels" value="WhatsApp + Email + SMS"/>WhatsApp + Email + SMS</label>
+        </div>
+      </div>
+      <div class="qa" style="margin-bottom:0">
+        <div class="q">Use AI voice calls for cold leads who stop responding after 7 days?<span class="hint">Available on the Growth plan only</span></div>
+        <div class="yn">
+          <label class="opt"><input type="radio" name="followup_voice" value="YES"/>YES</label>
+          <label class="opt"><input type="radio" name="followup_voice" value="NO"/>NO</label>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 TONE -->
+    <section class="sec">
+      <div class="sec-head"><span class="no">08</span><h2>Tone &amp; personality</h2></div>
+      <div class="qa">
+        <div class="q">What tone should your AI agent use with leads?</div>
+        <div class="checks col">
+          <label class="chk"><input type="radio" name="tone" value="Friendly and casual"/>Friendly and casual</label>
+          <label class="chk"><input type="radio" name="tone" value="Professional and formal"/>Professional and formal</label>
+          <label class="chk"><input type="radio" name="tone" value="Warm and caring"/>Warm and caring <span class="sub-note">(best for clinics / salons)</span></label>
+          <label class="chk"><input type="radio" name="tone" value="Energetic and motivating"/>Energetic and motivating <span class="sub-note">(best for gyms)</span></label>
+          <label class="chk fill"><input type="radio" name="tone" value="Other"/>Other:<input class="ipt specify-ipt" type="text" name="tone_other"/></label>
+        </div>
+      </div>
+      <div class="qa"><div class="q">What should the agent's name be?<span class="hint">e.g. Aria, Nova, Max — or we can suggest one</span></div><input class="ipt" type="text" name="agent_name"/></div>
+      <div class="qa" style="margin-bottom:0"><div class="q">Any words, phrases, or topics the agent should never use?</div><textarea class="ipt" name="agent_avoid"></textarea></div>
+    </section>
+
+    <!-- 09 CRM -->
+    <section class="sec">
+      <div class="sec-head"><span class="no">09</span><h2>CRM &amp; data</h2></div>
+      <div class="qa">
+        <div class="q">Where do you want lead data stored?</div>
+        <div class="checks col">
+          <label class="chk"><input type="radio" name="crm" value="Google Sheets"/>Google Sheets <span class="sub-note">(free, simple)</span></label>
+          <label class="chk"><input type="radio" name="crm" value="Airtable"/>Airtable <span class="sub-note">(free tier available)</span></label>
+          <label class="chk"><input type="radio" name="crm" value="Notion"/>Notion <span class="sub-note">(free tier available)</span></label>
+          <label class="chk fill"><input type="radio" name="crm" value="Existing CRM"/>Existing CRM:<input class="ipt specify-ipt" type="text" name="crm_existing"/></label>
+          <label class="chk"><input type="radio" name="crm" value="Set one up for me"/>Set one up for me</label>
+        </div>
+      </div>
+      <div class="qa" style="margin-bottom:0">
+        <div class="q">Save full conversation history per lead?</div>
+        <div class="yn">
+          <label class="opt"><input type="radio" name="crm_history" value="YES"/>YES</label>
+          <label class="opt"><input type="radio" name="crm_history" value="NO"/>NO</label>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 PACKAGE -->
+    <section class="sec">
+      <div class="sec-head"><span class="no">10</span><h2>Package confirmation</h2></div>
+      <p class="sec-note">Select your package:</p>
+      <div class="pkgs">
+        <label class="pkg"><input type="radio" name="package" value="Basic — $500 setup + $150/mo"/><div><div class="pk-name">Basic</div><div class="pk-price">$500 setup<br/>+ $150 / month</div></div></label>
+        <label class="pkg"><input type="radio" name="package" value="Standard — $800 setup + $300/mo"/><div><div class="pk-name">Standard</div><div class="pk-price">$800 setup<br/>+ $300 / month</div></div></label>
+        <label class="pkg"><input type="radio" name="package" value="Growth — $1,500 setup + $500/mo"/><div><div class="pk-name">Growth</div><div class="pk-price">$1,500 setup<br/>+ $500 / month</div></div></label>
+      </div>
+      <div class="qa" style="margin-top:24px;margin-bottom:0">
+        <div class="q">Payment method</div>
+        <div class="checks">
+          <label class="chk"><input type="radio" name="payment" value="Bank transfer"/>Bank transfer</label>
+          <label class="chk"><input type="radio" name="payment" value="Wise"/>Wise</label>
+          <label class="chk"><input type="radio" name="payment" value="PayPal"/>PayPal</label>
+          <label class="chk"><input type="radio" name="payment" value="Crypto"/>Crypto</label>
+          <label class="chk fill"><input type="radio" name="payment" value="Other"/>Other:<input class="ipt specify-ipt" type="text" name="payment_other"/></label>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11 TIMELINE -->
+    <section class="sec">
+      <div class="sec-head"><span class="no">11</span><h2>Timeline expectations</h2></div>
+      <p class="sec-note">Once we receive your completed form:</p>
+      <div class="timeline">
+        <div class="tl-row"><span class="when">Day 1–2</span><span class="what">We review your answers and send you a build plan.</span></div>
+        <div class="tl-row"><span class="when">Day 3–5</span><span class="what">System is built and tested internally.</span></div>
+        <div class="tl-row"><span class="when">Day 6–7</span><span class="what">We walk you through the system live on a call.</span></div>
+        <div class="tl-row"><span class="when">Day 8–10</span><span class="what">System goes live on your number.</span></div>
+        <div class="tl-row"><span class="when">Day 14</span><span class="what">First check-in call to review performance.</span></div>
+      </div>
+      <div class="tl-total">Form submission to go-live: <b>7–10 business days.</b></div>
+    </section>
+
+    <!-- 12 WHAT WE NEED -->
+    <section class="sec">
+      <div class="sec-head"><span class="no">12</span><h2>What we need from you</h2></div>
+      <div class="need-list">
+        <label class="ni"><input type="checkbox" name="need" value="Completed form"/><div>This completed form, sent back to us.</div></label>
+        <label class="ni"><input type="checkbox" name="need" value="Calendar access"/><div>Access to your Google Calendar (we'll send a sharing link).</div></label>
+        <label class="ni"><input type="checkbox" name="need" value="WhatsApp confirmed"/><div>Your WhatsApp number confirmed and ready.</div></label>
+        <label class="ni"><input type="checkbox" name="need" value="Setup fee confirmed"/><div>Setup fee payment confirmed.</div></label>
+        <label class="ni"><input type="checkbox" name="need" value="Onboarding call booked"/><div>A 30-minute onboarding call booked here: <a href="https://cal.com/taiye-kotiku/discovery-call" target="_blank" rel="noopener">cal.com/taiye-kotiku/discovery-call</a></div></label>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="sec">
+      <div class="sec-head"><span class="no">—</span><h2>Your contact details</h2></div>
+      <div class="contact">
+        <div class="field"><span class="lab">Best WhatsApp to reach you</span><input class="ipt" type="text" name="reach_whatsapp"/></div>
+        <div class="field"><span class="lab">Best email to reach you</span><input class="ipt" type="email" name="reach_email"/></div>
+      </div>
+    </section>
+
+  </form>
+
+  <!-- IMPORTANT NOTES -->
+  <section class="notes">
+    <div class="eyebrow">Important notes</div>
+    <ul>
+      <li>All your lead data belongs to you. We never share or sell it.</li>
+      <li>The system runs 24/7 once live — no action needed from your team.</li>
+      <li>You can pause or update the system at any time by messaging us.</li>
+      <li>Your monthly retainer covers monitoring, bug fixes, and minor updates.</li>
+      <li>Major new features or channel additions are scoped separately.</li>
+    </ul>
+  </section>
+
+  <!-- SIGN OFF -->
+  <section class="signoff">
+    <h3>Thank you for choosing <em>Leadoro.</em></h3>
+    <p>We'll make sure no lead goes to waste.</p>
+  </section>
+
+  <footer class="page-foot">
+    <span>Leadoro · Lead-to-Revenue Automation</span>
+    <span class="mono">Onboarding · 2026</span>
+  </footer>
+
+  <!-- STICKY SUBMIT BAR -->
+  <div class="submit-bar">
+    <div class="status" id="saveStatus">Your answers save automatically on this device.</div>
+    <div class="sub-btns">
+      <button type="button" class="btn" id="waBtn">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1012 2zm0 18a8 8 0 01-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1112 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.8 1-.3.2-.5 0a6.5 6.5 0 01-1.9-1.2 7.2 7.2 0 01-1.3-1.7c-.1-.2 0-.4.1-.5l.4-.4.2-.4v-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 00-.7.3 2.8 2.8 0 00-.9 2.1 4.9 4.9 0 001 2.6 11 11 0 004.3 3.8c2 .8 2 .5 2.4.5a2.5 2.5 0 001.6-1.1 2 2 0 00.2-1.1c-.1-.1-.3-.2-.5-.3z"/></svg>
+        Send via WhatsApp
+      </button>
+      <button type="button" class="btn ghost" id="emailBtn">Send via Email</button>
+      <button type="button" class="btn ghost" id="copyBtn">Copy answers</button>
+    </div>
+  </div>
+
+</main>
+
+<script>
+(function () {
+  var form = document.getElementById('onboardForm');
+  if (!form) return;
+
+  var STORE = 'leadoro_onboarding_v1';
+  var LEADORO_WHATSAPP = '';
+  var LEADORO_EMAIL    = 'kotikutaiye@gmail.com';
+
+  /* Autosave */
+  function save() {
+    var data = {};
+    form.querySelectorAll('input, textarea, select').forEach(function (el) {
+      if (!el.name) return;
+      if (el.type === 'checkbox' || el.type === 'radio') {
+        if (el.checked) {
+          if (el.type === 'checkbox') {
+            (data[el.name] = data[el.name] || []).push(el.value);
+          } else {
+            data[el.name] = el.value;
+          }
+        }
+      } else {
+        if (el.value) data[el.name] = el.value;
+      }
+    });
+    try { localStorage.setItem(STORE, JSON.stringify(data)); } catch (e) {}
+    flash();
+  }
+
+  function restore() {
+    var raw;
+    try { raw = localStorage.getItem(STORE); } catch (e) { return; }
+    if (!raw) return;
+    var data;
+    try { data = JSON.parse(raw); } catch (e) { return; }
+    form.querySelectorAll('input, textarea, select').forEach(function (el) {
+      if (!el.name || !(el.name in data)) return;
+      var v = data[el.name];
+      if (el.type === 'checkbox') {
+        el.checked = Array.isArray(v) && v.indexOf(el.value) !== -1;
+      } else if (el.type === 'radio') {
+        el.checked = (el.value === v);
+      } else {
+        el.value = v;
+      }
+    });
+  }
+
+  var statusEl = document.getElementById('saveStatus');
+  var flashTimer;
+  function flash() {
+    if (!statusEl) return;
+    statusEl.textContent = 'Saved ✓  ·  progress is kept on this device';
+    statusEl.classList.add('on');
+    clearTimeout(flashTimer);
+    flashTimer = setTimeout(function () {
+      statusEl.classList.remove('on');
+      statusEl.textContent = 'Your answers save automatically on this device.';
+    }, 1600);
+  }
+
+  form.addEventListener('input', save);
+  form.addEventListener('change', save);
+
+  /* Compile transcript */
+  function firstText(el) {
+    if (!el) return '';
+    var s = '';
+    el.childNodes.forEach(function (n) {
+      if (n.nodeType === 3) s += n.textContent;
+    });
+    return s.replace(/\s+/g, ' ').trim();
+  }
+
+  function checkedIn(scope, name) {
+    var out = [];
+    scope.querySelectorAll('input[type=checkbox]:checked, input[type=radio]:checked').forEach(function (el) {
+      if (name && el.name !== name) return;
+      var lab = el.closest('label');
+      out.push(lab ? firstText(lab) || el.value : el.value);
+    });
+    return out;
+  }
+
+  function compile() {
+    var L = [];
+    L.push('LEADORO — CLIENT ONBOARDING');
+    L.push('Submitted: ' + new Date().toLocaleString());
+    L.push('');
+
+    form.querySelectorAll('.sec').forEach(function (sec) {
+      var title = (sec.querySelector('h2') || {}).textContent;
+      if (!title) return;
+      L.push('=== ' + title.trim().toUpperCase() + ' ===');
+
+      sec.querySelectorAll('.field').forEach(function (f) {
+        var lab = firstText(f.querySelector('.lab'));
+        var inp = f.querySelector('input, textarea, select');
+        if (inp && (inp.type === 'text' || inp.type === 'email' || inp.tagName === 'TEXTAREA' || inp.tagName === 'SELECT')) {
+          L.push(lab + ': ' + (inp.value.trim() || '—'));
+        }
+      });
+
+      sec.querySelectorAll('.qa').forEach(function (qa) {
+        var q = firstText(qa.querySelector('.q'));
+        var bits = [];
+        qa.querySelectorAll('input[type=text], input[type=email], textarea, input.specify-ipt').forEach(function (inp) {
+          if (inp.value && inp.value.trim()) bits.push(inp.value.trim());
+        });
+        var picks = checkedIn(qa);
+        if (q) L.push(q);
+        if (picks.length) L.push('  → ' + picks.join(', '));
+        if (bits.length) L.push('  → ' + bits.join(' | '));
+        if (!picks.length && !bits.length && q) L.push('  → —');
+      });
+
+      sec.querySelectorAll('.day').forEach(function (d) {
+        var dn = firstText(d.querySelector('.dn'));
+        var a = d.querySelector('input');
+        L.push(dn + ': ' + ((a && a.value.trim()) || '—'));
+      });
+
+      var pkgPick = checkedIn(sec, 'package');
+      if (pkgPick.length) L.push('Selected package: ' + pkgPick.join(', '));
+
+      if (sec.querySelector('.need-list')) {
+        var done = checkedIn(sec);
+        L.push('Confirmed: ' + (done.length ? done.join('; ') : 'none yet'));
+      }
+
+      L.push('');
+    });
+
+    return L.join('\n');
+  }
+
+  function getBiz() {
+    var el = form.querySelector('[name="biz_name"]');
+    return el ? el.value.trim() : '';
+  }
+
+  document.getElementById('waBtn').addEventListener('click', function () {
+    var txt = encodeURIComponent(compile());
+    var base = LEADORO_WHATSAPP ? 'https://wa.me/' + LEADORO_WHATSAPP : 'https://wa.me/';
+    window.open(base + '?text=' + txt, '_blank');
+  });
+
+  document.getElementById('emailBtn').addEventListener('click', function () {
+    var body = encodeURIComponent(compile());
+    var subj = encodeURIComponent('Leadoro Onboarding — ' + (getBiz() || 'New client'));
+    window.location.href = 'mailto:' + LEADORO_EMAIL + '?subject=' + subj + '&body=' + body;
+  });
+
+  var copyBtn = document.getElementById('copyBtn');
+  copyBtn.addEventListener('click', function () {
+    var text = compile();
+    navigator.clipboard.writeText(text).then(function () {
+      var old = copyBtn.textContent;
+      copyBtn.textContent = 'Copied ✓';
+      setTimeout(function () { copyBtn.textContent = old; }, 1600);
+    }).catch(function () {
+      window.prompt('Copy your answers:', text);
+    });
+  });
+
+  restore();
+})();
+</script>
+
+</body>
+</html>
