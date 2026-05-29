@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Block internal/utility pages from indexing
+Disallow: /onboarding.html
+Disallow: /client-brief.html
+
+Sitemap: https://leadoro.netlify.app/sitemap.xml
