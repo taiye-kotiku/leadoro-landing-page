@@ -505,6 +505,65 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
 }
 .foot-social a:hover { border-color: #DBA76A; color: #DBA76A; }
 .foot-social svg { width: 18px; height: 18px; }
+
+/* ── Animations & motion ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-20px); }
+}
+@keyframes pulse-ring {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(26,22,18,.22); }
+  60%       { box-shadow: 0 0 0 8px rgba(26,22,18,0); }
+}
+
+/* Hero staggered entrance */
+.hero .eyebrow    { animation: fadeUp .6s cubic-bezier(.22,1,.36,1) .08s both; }
+.hero h1          { animation: fadeUp .7s cubic-bezier(.22,1,.36,1) .20s both; }
+.hero .hero-sub   { animation: fadeUp .7s cubic-bezier(.22,1,.36,1) .34s both; }
+.hero .cta-row    { animation: fadeUp .7s cubic-bezier(.22,1,.36,1) .46s both; }
+.hero .hero-trust { animation: fadeUp .65s cubic-bezier(.22,1,.36,1) .56s both; }
+
+/* Floating watermark */
+.hero-watermark { animation: float 10s ease-in-out infinite; }
+
+/* Flow dot hover lift */
+.flow-dot { transition: transform .18s, box-shadow .18s; }
+.flow-step:hover .flow-dot { transform: scale(1.08); box-shadow: var(--shadow-md); }
+
+/* Trust pill pulse */
+.trust-pill.solid { animation: pulse-ring 3s ease-in-out 1.4s infinite; }
+
+/* Scroll-reveal */
+.reveal {
+  opacity: 0; transform: translateY(18px);
+  transition:
+    opacity  .65s cubic-bezier(.22,1,.36,1) var(--delay, 0s),
+    transform .65s cubic-bezier(.22,1,.36,1) var(--delay, 0s);
+}
+.reveal.in { opacity: 1; transform: none; }
+
+/* Stagger delays */
+.prob-card:nth-child(2) { --delay: .12s; }
+.prob-card:nth-child(3) { --delay: .24s; }
+.flow-step:nth-child(2) { --delay: .07s; }
+.flow-step:nth-child(3) { --delay: .14s; }
+.flow-step:nth-child(4) { --delay: .21s; }
+.flow-step:nth-child(5) { --delay: .28s; }
+.flow-step:nth-child(6) { --delay: .35s; }
+.aud-card:nth-child(2)  { --delay: .07s; }
+.aud-card:nth-child(3)  { --delay: .14s; }
+.aud-card:nth-child(4)  { --delay: .21s; }
+.aud-card:nth-child(5)  { --delay: .28s; }
+.aud-card:nth-child(6)  { --delay: .35s; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
+  .reveal { opacity: 1; transform: none; }
+}
 </style>
 </head>
 <body>
@@ -556,7 +615,7 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
     <div class="hero-inner">
       <div class="eyebrow">AI Lead Automation</div>
       <h1>Every lead you ignore is <em>money your competitor keeps.</em></h1>
-      <p class="hero-sub">Leadoro builds AI-powered lead systems that respond in seconds, qualify prospects, and book appointments — automatically, 24/7.</p>
+      <p class="hero-sub">Leadoro builds AI-powered lead systems that respond in seconds, qualify prospects, and book appointments automatically, 24/7.</p>
       <div class="cta-row">
         <a class="btn btn-lg" href="https://cal.com/taiye-kotiku/system-walkthrough" target="_blank" rel="noopener noreferrer">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
@@ -580,24 +639,24 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
 <!-- ════ THE PROBLEM ════ -->
 <section class="band">
   <div class="lp">
-    <div class="section-head">
+    <div class="section-head reveal">
       <div class="eyebrow">The Problem</div>
       <h2>You're losing leads you <em>already paid for.</em></h2>
     </div>
     <div class="problem-grid">
-      <div class="prob-card">
+      <div class="prob-card reveal">
         <div class="prob-num">01</div>
         <p>Leads come in at night. Nobody replies until morning. By then, <b>they've already moved on.</b></p>
         <div class="tail">Slow response → lost sale</div>
       </div>
-      <div class="prob-card">
+      <div class="prob-card reveal">
         <div class="prob-num">02</div>
-        <p>Your team burns <b>hours chasing cold inquiries</b> manually — calls, follow-ups, copy-paste replies.</p>
+        <p>Your team burns <b>hours chasing cold inquiries</b> manually: calls, follow-ups, copy-paste replies.</p>
         <div class="tail">Manual work → wasted time</div>
       </div>
-      <div class="prob-card">
+      <div class="prob-card reveal">
         <div class="prob-num">03</div>
-        <p>You're running ads and getting traffic — but <b>conversion is still broken.</b></p>
+        <p>You're running ads and getting traffic, but <b>conversion is still broken.</b></p>
         <div class="tail">Paid clicks → leaking funnel</div>
       </div>
     </div>
@@ -607,37 +666,37 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
 <!-- ════ THE SOLUTION ════ -->
 <section class="band alt">
   <div class="lp">
-    <div class="section-head">
+    <div class="section-head reveal">
       <div class="eyebrow">The Solution</div>
       <h2>One system. <em>Zero missed leads.</em></h2>
     </div>
     <div class="flow" role="list">
-      <div class="flow-step" role="listitem">
+      <div class="flow-step reveal" role="listitem">
         <div class="flow-dot">1</div>
         <h3>Capture</h3>
         <div class="verb">Every inquiry</div>
       </div>
-      <div class="flow-step" role="listitem">
+      <div class="flow-step reveal" role="listitem">
         <div class="flow-dot">2</div>
         <h3>Engage</h3>
         <div class="verb">In seconds</div>
       </div>
-      <div class="flow-step" role="listitem">
+      <div class="flow-step reveal" role="listitem">
         <div class="flow-dot">3</div>
         <h3>Qualify</h3>
         <div class="verb">Right fit only</div>
       </div>
-      <div class="flow-step" role="listitem">
+      <div class="flow-step reveal" role="listitem">
         <div class="flow-dot">4</div>
         <h3>Nurture</h3>
         <div class="verb">Follow up</div>
       </div>
-      <div class="flow-step" role="listitem">
+      <div class="flow-step reveal" role="listitem">
         <div class="flow-dot">5</div>
         <h3>Convert</h3>
         <div class="verb">Book the call</div>
       </div>
-      <div class="flow-step" role="listitem">
+      <div class="flow-step reveal" role="listitem">
         <div class="flow-dot">6</div>
         <h3>Grow</h3>
         <div class="verb">Compound revenue</div>
@@ -649,12 +708,12 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
 <!-- ════ WHO IT'S FOR ════ -->
 <section class="band">
   <div class="lp">
-    <div class="section-head">
+    <div class="section-head reveal">
       <div class="eyebrow">Who It's For</div>
       <h2>Built for service businesses that <em>can't afford to lose leads.</em></h2>
     </div>
     <div class="audience">
-      <div class="aud-card">
+      <div class="aud-card reveal">
         <div class="aud-ico">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
             <path d="M12 2a5 5 0 1 0 0 10A5 5 0 0 0 12 2zM4 20c0-4 3.6-7 8-7s8 3 8 7"/>
@@ -662,7 +721,7 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
         </div>
         <div class="aud-label">Clinics</div>
       </div>
-      <div class="aud-card">
+      <div class="aud-card reveal">
         <div class="aud-ico">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
             <path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h.01M15 9h.01M9 13h.01M15 13h.01M10 21v-4h4v4"/>
@@ -670,7 +729,7 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
         </div>
         <div class="aud-label">Hotels</div>
       </div>
-      <div class="aud-card">
+      <div class="aud-card reveal">
         <div class="aud-ico">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
             <path d="M3 11l9-7 9 7M5 10v10h14V10M9 20v-6h6v6"/>
@@ -678,7 +737,7 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
         </div>
         <div class="aud-label">Real Estate</div>
       </div>
-      <div class="aud-card">
+      <div class="aud-card reveal">
         <div class="aud-ico">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
             <path d="M6.5 6.5l11 11M4 12l-1.5 1.5a2.1 2.1 0 003 3L7 16M17 8l1.5-1.5a2.1 2.1 0 00-3-3L14 5M9 15l6-6"/>
@@ -686,7 +745,7 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
         </div>
         <div class="aud-label">Gyms</div>
       </div>
-      <div class="aud-card">
+      <div class="aud-card reveal">
         <div class="aud-ico">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
             <path d="M6 3v6a6 6 0 0012 0V3M6 21h12M12 15v6"/>
@@ -694,7 +753,7 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
         </div>
         <div class="aud-label">Salons</div>
       </div>
-      <div class="aud-card more">
+      <div class="aud-card more reveal">
         <div class="aud-ico">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
             <circle cx="5"  cy="12" r="1.4"/>
@@ -712,7 +771,7 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
 <section class="final">
   <svg class="final-wm" aria-hidden="true"><use href="#coin"/></svg>
   <div class="lp">
-    <div class="final-inner">
+    <div class="final-inner reveal">
       <div class="eyebrow">Get Started</div>
       <h2>Ready to stop <em>losing leads?</em></h2>
       <div class="cta-row">
@@ -758,6 +817,17 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
     <div class="foot-meta">Leadoro &copy; 2026</div>
   </div>
 </footer>
+
+<script>
+(function(){
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+})();
+</script>
 
 </body>
 </html>
