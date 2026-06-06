@@ -1,0 +1,30 @@
+# Leadoro
+
+> Done-for-you AI lead automation for service businesses — WhatsApp, forms, and social DMs captured, qualified, and booked into your calendar automatically, 24/7.
+
+Leadoro builds and manages AI-powered lead pipelines for clinics, real estate agents, salons, coaches, and other service businesses. When a prospect messages on WhatsApp, fills a form, or sends a DM, Leadoro responds in under 30 seconds, qualifies them with conversational questions, nurtures cold leads with timed follow-up sequences, and books appointments directly into the owner's calendar — with no manual effort required.
+
+The service is fully managed: clients complete one 15-minute onboarding call, then Leadoro handles setup, monitoring, and monthly reporting.
+
+## Core Pages
+
+- [Home](https://leadoro.netlify.app/): Overview of the AI lead automation service, who it's for, and how to get started.
+- [How It Works](https://leadoro.netlify.app/how-it-works.html): Detailed walkthrough of the 6-stage lead pipeline — Capture, Engage, Qualify, Nurture, Convert, and Grow — with examples of real automations and a FAQ.
+
+## Blog
+
+- [Blog](https://leadoro.netlify.app/blog/): Articles on AI lead automation, WhatsApp marketing, and appointment booking for service businesses.
+- [Stop Losing Leads After Hours](https://leadoro.netlify.app/blog/stop-losing-leads-after-hours.html): Why after-hours inquiries go cold and how automated response systems fix the problem.
+- [WhatsApp Automation for Clinics](https://leadoro.netlify.app/blog/whatsapp-automation-for-clinics.html): How medical and wellness clinics use WhatsApp automation to handle patient inquiries and reduce no-shows.
+- [AI Lead Follow-Up for Real Estate](https://leadoro.netlify.app/blog/ai-lead-follow-up-real-estate.html): How real estate agents use AI to follow up with property inquiries and book viewings automatically.
+
+## Key Facts
+
+- Service type: Managed AI lead automation (done-for-you, no client involvement after onboarding)
+- Channels supported: WhatsApp Business API, website contact forms, social media DMs
+- Industries served: Clinics, real estate, salons, coaches, home services, and other local service businesses
+- Response time: Under 30 seconds for every inbound lead, 24 hours a day, 7 days a week
+- Onboarding: One 15-minute call, then fully handled by Leadoro
+- Reporting: Monthly video report from a dedicated specialist
+- Contact: https://wa.me/2348080608957
+- Discovery call: https://cal.com/taiye-kotiku/discovery-call
