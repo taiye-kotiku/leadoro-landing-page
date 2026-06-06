@@ -6,3 +6,4 @@ Disallow: /onboarding.html
 Disallow: /client-brief.html
 
 Sitemap: https://leadoro.netlify.app/sitemap.xml
+LLMs: https://leadoro.netlify.app/llms.txt
