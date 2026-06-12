@@ -18,6 +18,16 @@ The service is fully managed: clients complete one 15-minute onboarding call, th
 - [WhatsApp Automation for Clinics](https://leadoro.netlify.app/blog/whatsapp-automation-for-clinics.html): How medical and wellness clinics use WhatsApp automation to handle patient inquiries and reduce no-shows.
 - [AI Lead Follow-Up for Real Estate](https://leadoro.netlify.app/blog/ai-lead-follow-up-real-estate.html): How real estate agents use AI to follow up with property inquiries and book viewings automatically.
 
+## Proof of Work (Selected Projects)
+
+- **Alessio · Dream Gym Italy** — Bilingual IT/EN AI voice agent for a 150-location fitness chain. Auto-detects caller language, fuzzy-matches nearest gym, books appointments into Google Calendar 24/7. Stack: ElevenLabs, n8n, Google Calendar, Bilingual NLP.
+- **Neo AI Running Coach** — AI WhatsApp running coach with automated Stripe subscription billing and GPT-4o personalised weekly training plans. Stack: n8n, GPT-4o, Stripe, Supabase, WhatsApp.
+- **WhatsApp Recruitment Agent · Germany** — GDPR-compliant German-language recruitment bot. Gmail triggers Claude AI to extract applicant data, verify consent, run Q&A, and book interviews. Stack: n8n, Claude AI, 360Dialog, WhatsApp Business API, Gmail, Google Calendar.
+- **StarPlay IPTV · Brazil** — 10-workflow WhatsApp sales funnel with 5 AI agents, isolated Postgres memory, GPT-4o Vision screenshot support, SPIN upsell agent, and scheduled remarketing. Stack: n8n, GPT-4o, PostgreSQL, WhatsApp API.
+- **Bilingual Sales Agent · DB Studio (FR/EN)** — AI voice agent for inbound sales, detecting language instantly, qualifying across 3 pricing tiers, booking consultations, and sending SMS confirmations via Twilio. Stack: Retell AI, Twilio, Google Calendar.
+- **AI Voice Receptionist · Solo Affitti Italy** — Bilingual IT/EN AI receptionist for a real estate rental agency answering property inquiries, qualifying tenants, and booking viewings after hours. Stack: ElevenLabs, n8n, Voice AI.
+- **German Booking Agent · Friseursalon Istanbul** — German-language AI voice agent identifying callers and booking appointments directly into GoHighLevel for a hair salon. Stack: ElevenLabs, GoHighLevel, Voice AI.
+
 ## Key Facts
 
 - Service type: Managed AI lead automation (done-for-you, no client involvement after onboarding)
