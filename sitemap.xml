@@ -1,38 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://leadoro.netlify.app/</loc>
-    <lastmod>2026-06-03</lastmod>
+    <loc>https://leadoro.pro/</loc>
+    <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://leadoro.netlify.app/how-it-works.html</loc>
-    <lastmod>2026-06-03</lastmod>
+    <loc>https://leadoro.pro/how-it-works.html</loc>
+    <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://leadoro.netlify.app/blog/</loc>
-    <lastmod>2026-06-03</lastmod>
+    <loc>https://leadoro.pro/services.html</loc>
+    <lastmod>2026-07-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://leadoro.pro/blog/</loc>
+    <lastmod>2026-07-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://leadoro.netlify.app/blog/stop-losing-leads-after-hours.html</loc>
-    <lastmod>2026-06-03</lastmod>
+    <loc>https://leadoro.pro/blog/stop-losing-leads-after-hours.html</loc>
+    <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://leadoro.netlify.app/blog/whatsapp-automation-for-clinics.html</loc>
-    <lastmod>2026-06-03</lastmod>
+    <loc>https://leadoro.pro/blog/whatsapp-automation-for-clinics.html</loc>
+    <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://leadoro.netlify.app/blog/ai-lead-follow-up-real-estate.html</loc>
-    <lastmod>2026-06-03</lastmod>
+    <loc>https://leadoro.pro/blog/ai-lead-follow-up-real-estate.html</loc>
+    <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

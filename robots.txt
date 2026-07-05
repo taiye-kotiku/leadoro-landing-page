@@ -1,9 +1,28 @@
 User-agent: *
 Allow: /
 
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
 # Block internal/utility pages from indexing
 Disallow: /onboarding.html
 Disallow: /client-brief.html
+Disallow: /project/
 
-Sitemap: https://leadoro.netlify.app/sitemap.xml
-LLMs: https://leadoro.netlify.app/llms.txt
+Sitemap: https://leadoro.pro/sitemap.xml
+LLMs: https://leadoro.pro/llms.txt

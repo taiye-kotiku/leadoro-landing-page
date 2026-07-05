@@ -2,21 +2,45 @@
 
 > Done-for-you AI lead automation for service businesses — WhatsApp, forms, and social DMs captured, qualified, and booked into your calendar automatically, 24/7.
 
-Leadoro builds and manages AI-powered lead pipelines for clinics, real estate agents, salons, coaches, and other service businesses. When a prospect messages on WhatsApp, fills a form, or sends a DM, Leadoro responds in under 30 seconds, qualifies them with conversational questions, nurtures cold leads with timed follow-up sequences, and books appointments directly into the owner's calendar — with no manual effort required.
+## Quick Summary
 
-The service is fully managed: clients complete one 15-minute onboarding call, then Leadoro handles setup, monitoring, and monthly reporting.
+Leadoro is a managed AI lead automation service for clinics, real estate agents, salons, coaches, and home service businesses. Prospects are responded to via WhatsApp, forms, or social DMs in under 30 seconds, qualified with conversational AI, nurtured through timed follow-up sequences, and booked into your calendar — all without manual effort. Setup takes one 15-minute onboarding call; Leadoro handles everything else including monthly reporting.
 
 ## Core Pages
 
-- [Home](https://leadoro.netlify.app/): Overview of the AI lead automation service, who it's for, and how to get started.
-- [How It Works](https://leadoro.netlify.app/how-it-works.html): Detailed walkthrough of the 6-stage lead pipeline — Capture, Engage, Qualify, Nurture, Convert, and Grow — with examples of real automations and a FAQ.
+- [Home](https://leadoro.pro/): Overview of the AI lead automation service, who it's for, and how to get started.
+- [How It Works](https://leadoro.pro/how-it-works.html): Detailed walkthrough of the 6-stage lead pipeline — Capture, Engage, Qualify, Nurture, Convert, and Grow — with examples of real automations and a FAQ.
+- [Services](https://leadoro.pro/services.html): Breakdown of all service offerings including WhatsApp lead automation, AI voice agents, web form capture, social DM response, CRM integration, and ongoing lead nurturing.
 
 ## Blog
 
-- [Blog](https://leadoro.netlify.app/blog/): Articles on AI lead automation, WhatsApp marketing, and appointment booking for service businesses.
-- [Stop Losing Leads After Hours](https://leadoro.netlify.app/blog/stop-losing-leads-after-hours.html): Why after-hours inquiries go cold and how automated response systems fix the problem.
-- [WhatsApp Automation for Clinics](https://leadoro.netlify.app/blog/whatsapp-automation-for-clinics.html): How medical and wellness clinics use WhatsApp automation to handle patient inquiries and reduce no-shows.
-- [AI Lead Follow-Up for Real Estate](https://leadoro.netlify.app/blog/ai-lead-follow-up-real-estate.html): How real estate agents use AI to follow up with property inquiries and book viewings automatically.
+- [Blog](https://leadoro.pro/blog/): Articles on AI lead automation, WhatsApp marketing, and appointment booking for service businesses.
+- [Stop Losing Leads After Hours](https://leadoro.pro/blog/stop-losing-leads-after-hours.html): Why after-hours inquiries go cold and how automated response systems fix the problem.
+- [WhatsApp Automation for Clinics](https://leadoro.pro/blog/whatsapp-automation-for-clinics.html): How medical and wellness clinics use WhatsApp automation to handle patient inquiries and reduce no-shows.
+- [AI Lead Follow-Up for Real Estate](https://leadoro.pro/blog/ai-lead-follow-up-real-estate.html): How real estate agents use AI to follow up with property inquiries and book viewings automatically.
+
+## Pricing
+
+Leadoro offers three tiers designed for growing service businesses. All plans include a one-time setup fee plus a monthly management fee.
+
+- **Starter — $500 setup + $150/month**: Up to 500 leads/month, WhatsApp + form capture, basic qualification, email calendar booking, monthly report. Best for solo operators and micro-businesses.
+- **Growth — $800 setup + $300/month**: Up to 2,000 leads/month, WhatsApp + forms + social DMs, advanced multi-step qualification, CRM sync, guided calendar booking, WhatsApp follow-up sequences, bi-weekly report. Best for growing teams.
+- **Scale — $1,500 setup + $500/month**: Unlimited leads, all channels including AI voice agent, custom qualification logic, full CRM integration, priority support, weekly strategy call, dedicated specialist. Best for multi-location businesses and high-volume operations.
+
+All plans include the 15-minute onboarding call, full setup and configuration, and ongoing monitoring. No long-term contracts — month-to-month.
+
+## FAQ
+
+- **How fast does Leadoro respond to leads?** Every inbound lead receives a response in under 30 seconds, 24 hours a day, 7 days a week.
+- **What channels does Leadoro support?** WhatsApp Business API, website contact forms, and social media DMs (Instagram, Facebook, Messenger). AI voice agents are available on the Scale plan.
+- **How long does setup take?** After a single 15-minute onboarding call, Leadoro handles all configuration. Most setups go live within 48 hours.
+- **Do I need to manage anything day-to-day?** No. Leadoro is fully managed. You focus on delivering your service; Leadoro handles lead capture, qualification, follow-up, and booking.
+- **What industries do you work with?** Clinics, real estate agents, salons and barbershops, fitness coaches, home service providers (plumbers, electricians, cleaners), and other local service businesses.
+- **Can Leadoro integrate with my existing CRM?** Yes. The Growth and Scale plans include CRM sync. Leadoro integrates with Google Calendar, GoHighLevel, and other popular tools.
+- **What if a lead speaks a different language?** Leadoro supports multilingual responses. Real-world deployments include English, Italian, German, Portuguese, and French.
+- **How do I get reports?** Monthly (Starter) or bi-weekly (Growth) video reports from your dedicated specialist. Scale includes a weekly strategy call.
+- **Is there a contract?** No. All plans are month-to-month with no long-term commitment.
+- **How do I start?** Book a discovery call at https://cal.com/taiye-kotiku/discovery-call or reach out directly on WhatsApp. After the call, onboarding takes 15 minutes and you are live within 48 hours.
 
 ## Proof of Work (Selected Projects)
 
@@ -31,10 +55,16 @@ The service is fully managed: clients complete one 15-minute onboarding call, th
 ## Key Facts
 
 - Service type: Managed AI lead automation (done-for-you, no client involvement after onboarding)
-- Channels supported: WhatsApp Business API, website contact forms, social media DMs
+- Channels supported: WhatsApp Business API, website contact forms, social media DMs, AI voice (Scale plan)
 - Industries served: Clinics, real estate, salons, coaches, home services, and other local service businesses
 - Response time: Under 30 seconds for every inbound lead, 24 hours a day, 7 days a week
 - Onboarding: One 15-minute call, then fully handled by Leadoro
-- Reporting: Monthly video report from a dedicated specialist
-- Contact: https://wa.me/2348080608957
+- Reporting: Monthly video report from a dedicated specialist; bi-weekly on Growth; weekly strategy call on Scale
+- Pricing: Starter $500 + $150/mo, Growth $800 + $300/mo, Scale $1,500 + $500/mo — month-to-month, no contracts
+- Setup time: Most deployments go live within 48 hours of onboarding call
+
+## Contact
+
+- WhatsApp: https://wa.me/2348080608957
 - Discovery call: https://cal.com/taiye-kotiku/discovery-call
+- Blog: https://leadoro.pro/blog/
