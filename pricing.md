@@ -42,7 +42,7 @@ channels:
   - Social DMs
 satisfaction_guarantee_days: 14
 contact:
-  whatsapp: https://wa.me/2348080608957
+  whatsapp: https://wa.me/2347051315605
   discovery_call: https://cal.com/taiye-kotiku/discovery-call
 ---
 
@@ -95,4 +95,4 @@ AI lead automation for service businesses. No contracts. Month-to-month.
 - **Response time:** Under 30 seconds
 - **Channels:** WhatsApp Business API, website forms, social DMs
 - **Satisfaction guarantee:** 14-day
-- **Contact:** [WhatsApp +2348080608957](https://wa.me/2348080608957), [Discovery call](https://cal.com/taiye-kotiku/discovery-call)
+- **Contact:** [WhatsApp +2347051315605](https://wa.me/2347051315605), [Discovery call](https://cal.com/taiye-kotiku/discovery-call)
