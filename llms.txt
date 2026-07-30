@@ -10,7 +10,7 @@ Leadoro is a managed AI lead automation service for clinics, real estate agents,
 
 - [Home](https://leadoro.pro/): Overview of the AI lead automation service, who it's for, and how to get started.
 - [How It Works](https://leadoro.pro/how-it-works.html): Detailed walkthrough of the 6-stage lead pipeline — Capture, Engage, Qualify, Nurture, Convert, and Grow — with examples of real automations and a FAQ.
-- [Services](https://leadoro.pro/services.html): Breakdown of all service offerings including WhatsApp lead automation, AI voice agents, web form capture, social DM response, CRM integration, and ongoing lead nurturing.
+- [Services](https://leadoro.pro/services.html): Breakdown of service offerings including WhatsApp lead automation, web form capture, social DM response, CRM data export, and ongoing lead nurturing.
 
 ## Blog
 
@@ -21,47 +21,52 @@ Leadoro is a managed AI lead automation service for clinics, real estate agents,
 
 ## Pricing
 
-Leadoro offers three tiers designed for growing service businesses. All plans include a one-time setup fee plus a monthly management fee.
+Leadoro offers three tiers designed for growing service businesses. All plans include a one-time setup fee plus a monthly management fee, month-to-month with no long-term contract.
 
-- **Starter — $500 setup + $150/month**: Up to 500 leads/month, WhatsApp + form capture, basic qualification, email calendar booking, monthly report. Best for solo operators and micro-businesses.
-- **Growth — $800 setup + $300/month**: Up to 2,000 leads/month, WhatsApp + forms + social DMs, advanced multi-step qualification, CRM sync, guided calendar booking, WhatsApp follow-up sequences, bi-weekly report. Best for growing teams.
-- **Scale — $1,500 setup + $500/month**: Unlimited leads, all channels including AI voice agent, custom qualification logic, full CRM integration, priority support, weekly strategy call, dedicated specialist. Best for multi-location businesses and high-volume operations.
+- **Basic — $500 setup + $150/month**: WhatsApp AI responder, lead capture from 1 source, up to 5 qualification questions, appointment booking link, email notifications, monthly summary report. Best for solo operators and micro-businesses.
+- **Standard — $800 setup + $300/month (most popular)**: Everything in Basic, plus multi-source capture (website + WhatsApp + social), up to 15 qualification questions, direct calendar booking (Cal.com/Calendly), 7-day automated follow-up sequences, CRM data export, priority support.
+- **Growth — $1,500 setup + $500/month**: Everything in Standard, plus multi-channel (WhatsApp + Instagram DM + Facebook Messenger), advanced AI conversation flows, 30-day follow-up sequences, monthly strategy call, dedicated account manager.
 
-All plans include the 15-minute onboarding call, full setup and configuration, and ongoing monitoring. No long-term contracts — month-to-month.
+All plans include the 15-minute onboarding call, full setup and configuration, and ongoing monitoring.
 
 ## FAQ
 
 - **How fast does Leadoro respond to leads?** Every inbound lead receives a response in under 30 seconds, 24 hours a day, 7 days a week.
-- **What channels does Leadoro support?** WhatsApp Business API, website contact forms, and social media DMs (Instagram, Facebook, Messenger). AI voice agents are available on the Scale plan.
-- **How long does setup take?** After a single 15-minute onboarding call, Leadoro handles all configuration. Most setups go live within 48 hours.
+- **What channels does Leadoro support?** WhatsApp Business API, website contact forms, and social media DMs (Instagram, Facebook Messenger on the Growth plan).
+- **How long does setup take?** After a single 15-minute onboarding call, Leadoro handles all configuration. Typical setup is 7-14 days (up to 21 for Growth), most go live within 48 hours of the call.
 - **Do I need to manage anything day-to-day?** No. Leadoro is fully managed. You focus on delivering your service; Leadoro handles lead capture, qualification, follow-up, and booking.
 - **What industries do you work with?** Clinics, real estate agents, salons and barbershops, fitness coaches, home service providers (plumbers, electricians, cleaners), and other local service businesses.
-- **Can Leadoro integrate with my existing CRM?** Yes. The Growth and Scale plans include CRM sync. Leadoro integrates with Google Calendar, GoHighLevel, and other popular tools.
-- **What if a lead speaks a different language?** Leadoro supports multilingual responses. Real-world deployments include English, Italian, German, Portuguese, and French.
-- **How do I get reports?** Monthly (Starter) or bi-weekly (Growth) video reports from your dedicated specialist. Scale includes a weekly strategy call.
+- **Can Leadoro integrate with my existing CRM?** The Standard and Growth plans include CRM data export.
+- **What if a lead speaks a different language?** Leadoro supports multilingual responses.
+- **How do I get reports?** Monthly summary report on Basic; ongoing performance reporting and a monthly strategy call on Growth.
 - **Is there a contract?** No. All plans are month-to-month with no long-term commitment.
-- **How do I start?** Book a discovery call at https://cal.com/taiye-kotiku/discovery-call or reach out directly on WhatsApp. After the call, onboarding takes 15 minutes and you are live within 48 hours.
+- **Is there a guarantee?** Yes, a 14-day satisfaction guarantee — if the system underperforms after launch, Leadoro fixes it at no extra charge.
+- **How do I start?** Book a discovery call at https://cal.com/taiye-kotiku/discovery-call or reach out directly on WhatsApp.
 
-## Proof of Work (Selected Projects)
+## Founder's Track Record
 
-- **Alessio · Dream Gym Italy** — Bilingual IT/EN AI voice agent for a 150-location fitness chain. Auto-detects caller language, fuzzy-matches nearest gym, books appointments into Google Calendar 24/7. Stack: ElevenLabs, n8n, Google Calendar, Bilingual NLP.
-- **Neo AI Running Coach** — AI WhatsApp running coach with automated Stripe subscription billing and GPT-4o personalised weekly training plans. Stack: n8n, GPT-4o, Stripe, Supabase, WhatsApp.
-- **WhatsApp Recruitment Agent · Germany** — GDPR-compliant German-language recruitment bot. Gmail triggers Claude AI to extract applicant data, verify consent, run Q&A, and book interviews. Stack: n8n, Claude AI, 360Dialog, WhatsApp Business API, Gmail, Google Calendar.
-- **StarPlay IPTV · Brazil** — 10-workflow WhatsApp sales funnel with 5 AI agents, isolated Postgres memory, GPT-4o Vision screenshot support, SPIN upsell agent, and scheduled remarketing. Stack: n8n, GPT-4o, PostgreSQL, WhatsApp API.
-- **Bilingual Sales Agent · DB Studio (FR/EN)** — AI voice agent for inbound sales, detecting language instantly, qualifying across 3 pricing tiers, booking consultations, and sending SMS confirmations via Twilio. Stack: Retell AI, Twilio, Google Calendar.
-- **AI Voice Receptionist · Solo Affitti Italy** — Bilingual IT/EN AI receptionist for a real estate rental agency answering property inquiries, qualifying tenants, and booking viewings after hours. Stack: ElevenLabs, n8n, Voice AI.
-- **German Booking Agent · Friseursalon Istanbul** — German-language AI voice agent identifying callers and booking appointments directly into GoHighLevel for a hair salon. Stack: ElevenLabs, GoHighLevel, Voice AI.
+Leadoro's founder, Taiye Kotiku, has built AI automation systems for real clients across multiple countries and industries before Leadoro existed as a product. Selected examples (freelance/agency work, not Leadoro engagements):
+
+- **Dream Gym, Italy** — Bilingual IT/EN AI voice agent for a 150-location fitness chain. Auto-detects caller language, fuzzy-matches nearest gym, books appointments into Google Calendar 24/7.
+- **AI WhatsApp Running Coach** — WhatsApp running coach with automated Stripe subscription billing and GPT-4o personalised weekly training plans.
+- **WhatsApp Recruitment Agent, Germany** — GDPR-compliant German-language recruitment bot triggered from Gmail, verifies consent, runs Q&A, books interviews.
+- **WhatsApp Sales Funnel, Brazil** — Multi-workflow WhatsApp sales funnel with AI agents, isolated conversation memory, and scheduled remarketing.
+- **Bilingual Sales Agent, France/UK** — AI voice agent for inbound sales, qualifying across pricing tiers, booking consultations, sending SMS confirmations.
+- **AI Voice Receptionist, Italy** — Bilingual IT/EN AI receptionist for a real estate rental agency, qualifying tenants and booking viewings after hours.
+- **AI Booking Agent, Turkey** — German-language AI voice agent booking appointments for a hair salon.
+
+This experience — not a Leadoro client history, since Leadoro is a new product — is what Leadoro's automation is built on.
 
 ## Key Facts
 
 - Service type: Managed AI lead automation (done-for-you, no client involvement after onboarding)
-- Channels supported: WhatsApp Business API, website contact forms, social media DMs, AI voice (Scale plan)
+- Channels supported: WhatsApp Business API, website contact forms, social media DMs (Instagram/Facebook on Growth)
 - Industries served: Clinics, real estate, salons, coaches, home services, and other local service businesses
 - Response time: Under 30 seconds for every inbound lead, 24 hours a day, 7 days a week
 - Onboarding: One 15-minute call, then fully handled by Leadoro
-- Reporting: Monthly video report from a dedicated specialist; bi-weekly on Growth; weekly strategy call on Scale
-- Pricing: Starter $500 + $150/mo, Growth $800 + $300/mo, Scale $1,500 + $500/mo — month-to-month, no contracts
-- Setup time: Most deployments go live within 48 hours of onboarding call
+- Setup time: 7-14 days typically (up to 21 for Growth), most deployments go live within 48 hours of the onboarding call
+- Satisfaction guarantee: 14 days
+- Pricing: Basic $500 + $150/mo, Standard $800 + $300/mo, Growth $1,500 + $500/mo — month-to-month, no contracts
 
 ## Contact
 
