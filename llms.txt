@@ -18,6 +18,7 @@ Leadoro is a managed AI lead automation service for clinics, real estate agents,
 - [Stop Losing Leads After Hours](https://leadoro.pro/blog/stop-losing-leads-after-hours.html): Why after-hours inquiries go cold and how automated response systems fix the problem.
 - [WhatsApp Automation for Clinics](https://leadoro.pro/blog/whatsapp-automation-for-clinics.html): How medical and wellness clinics use WhatsApp automation to handle patient inquiries and reduce no-shows.
 - [AI Lead Follow-Up for Real Estate](https://leadoro.pro/blog/ai-lead-follow-up-real-estate.html): How real estate agents use AI to follow up with property inquiries and book viewings automatically.
+- [The 24-Hour Rule](https://leadoro.pro/blog/whatsapp-24-hour-window-rule.html): How WhatsApp's 24-hour customer service window works, why free-form follow-ups are rejected with error 131047 once it closes, and how template messages, quality ratings and messaging limits fit together.
 
 ## Pricing
 
