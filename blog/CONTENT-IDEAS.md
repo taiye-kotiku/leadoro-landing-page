@@ -1,9 +1,9 @@
-# Leadoro Blog — Content Ideas (from AnswerThePublic)
+# LeadOro Blog: Content Ideas (from AnswerThePublic)
 
-Source: AnswerThePublic "Suggested For You" report for Leadoro, pulled 2026-07-22.
+Source: AnswerThePublic "Suggested For You" report for LeadOro, pulled 2026-07-22.
 Existing published posts for reference (don't duplicate): `ai-lead-follow-up-real-estate.html`, `stop-losing-leads-after-hours.html`, `whatsapp-automation-for-clinics.html`.
 
-Each topic below has a primary content angle plus 2 supporting long-tail keywords. Nigeria-specific intent shows up heavily — lean into local angle (Naira pricing, WhatsApp-first behavior, GoHighLevel comparisons, ad spend waste) wherever natural.
+Each topic below has a primary content angle plus 2 supporting long-tail keywords. Nigeria-specific intent shows up heavily, lean into local angle (Naira pricing, WhatsApp-first behavior, GoHighLevel comparisons, ad spend waste) wherever natural.
 
 ## 1. How to automate WhatsApp leads
 - whatsapp lead automation nigeria
@@ -37,7 +37,7 @@ Each topic below has a primary content angle plus 2 supporting long-tail keyword
 - short let apartment automation nigeria
 - airbnb nigeria booking system
 
-## 9. Leadoro vs hiring a sales rep
+## 9. LeadOro vs hiring a sales rep
 - ai lead system vs sales rep cost nigeria
 - automate sales nigeria
 
@@ -47,6 +47,6 @@ Each topic below has a primary content angle plus 2 supporting long-tail keyword
 
 ## Notes for the writing agent
 - Target audience: Nigerian local service business owners (clinics, salons, real estate/short-let, hotels, gyms) evaluating AI-driven lead response.
-- Reference Leadoro's actual product (WhatsApp/website/social AI responders) and pricing tiers (Basic $150 / Standard $300 / Growth $500/mo) from `leadoro-landing-page/pricing.md` — keep pricing claims consistent with that file, don't invent numbers.
+- Reference LeadOro's actual product (WhatsApp/website/social AI responders) and pricing tiers (Basic $150 / Standard $300 / Growth $500/mo) from `leadoro-landing-page/pricing.md`, keep pricing claims consistent with that file, don't invent numbers.
 - CTA should point to the live site: https://leadoro.pro/
-- Match existing post structure/style — check `whatsapp-automation-for-clinics.html` as the closest topical match before starting a new post.
+- Match existing post structure/style, check `whatsapp-automation-for-clinics.html` as the closest topical match before starting a new post.

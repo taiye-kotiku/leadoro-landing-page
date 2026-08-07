@@ -1,6 +1,6 @@
 ---
-title: Pricing — Leadoro
-description: Leadoro offers three AI lead automation plans for service businesses — Basic, Standard, and Growth. Month-to-month, done-for-you setup.
+title: Pricing: LeadOro
+description: LeadOro offers three AI lead automation plans for service businesses: Basic, Standard, and Growth. Month-to-month, done-for-you setup.
 plans:
   - name: Basic
     setup: 500
@@ -46,7 +46,7 @@ contact:
   discovery_call: https://cal.com/taiye-kotiku/discovery-call
 ---
 
-# Pricing — Leadoro
+# Pricing: LeadOro
 
 AI lead automation for service businesses. No contracts. Month-to-month.
 
