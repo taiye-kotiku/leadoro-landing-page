@@ -211,13 +211,14 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
 .wa-widget:hover .wa-tooltip { opacity: 1; }
 
 @keyframes fadeUp { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
-.reveal { opacity: 0; transform: translateY(18px); transition: opacity .65s cubic-bezier(.22,1,.36,1) var(--delay,0s), transform .65s cubic-bezier(.22,1,.36,1) var(--delay,0s); }
-.reveal.in { opacity: 1; transform: none; }
+.js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .65s cubic-bezier(.22,1,.36,1) var(--delay,0s), transform .65s cubic-bezier(.22,1,.36,1) var(--delay,0s); }
+.js .reveal.in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
-  .reveal { opacity: 1; transform: none; }
+  .js .reveal { opacity: 1; transform: none; }
 }
 </style>
+<script>document.documentElement.className+=' js';</script>
 </head>
 <body>
 
@@ -276,7 +277,7 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
 <div class="lp">
   <div class="article-layout">
 
-    <article class="prose reveal">
+    <article class="prose">
 
       <p class="lead">Your receptionist handles one call at a time. When they are on the phone with one prospect, the next three callers go to voicemail — or worse, they hang up and call your competitor. This is not a staffing problem. It is a capacity problem. And it is costing you more leads than you think.</p>
 
@@ -523,10 +524,12 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
 
 <script>
 (function(){
+  if(!('IntersectionObserver' in window)){document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');});}else{
   var io = new IntersectionObserver(function(entries){
     entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  }
   var t=document.getElementById('nav-toggle'),l=document.getElementById('nav-links'),n=document.getElementById('site-nav');
   if(t&&l){
     t.addEventListener('click',function(){var o=l.classList.toggle('open');t.setAttribute('aria-expanded',String(o));t.classList.toggle('is-open',o);});

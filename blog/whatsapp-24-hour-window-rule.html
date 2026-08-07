@@ -255,16 +255,17 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
 /* Animations */
 @keyframes fadeUp { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
-.reveal { opacity: 0; transform: translateY(18px); transition: opacity .65s cubic-bezier(.22,1,.36,1) var(--delay,0s), transform .65s cubic-bezier(.22,1,.36,1) var(--delay,0s); }
-.reveal.in { opacity: 1; transform: none; }
+.js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .65s cubic-bezier(.22,1,.36,1) var(--delay,0s), transform .65s cubic-bezier(.22,1,.36,1) var(--delay,0s); }
+.js .reveal.in { opacity: 1; transform: none; }
 .article-hero .post-cat { animation: fadeUp .6s cubic-bezier(.22,1,.36,1) .06s both; }
 .article-hero h1      { animation: fadeUp .7s cubic-bezier(.22,1,.36,1) .18s both; }
 .article-hero .article-meta { animation: fadeUp .7s cubic-bezier(.22,1,.36,1) .30s both; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
-  .reveal { opacity: 1; transform: none; }
+  .js .reveal { opacity: 1; transform: none; }
 }
 </style>
+<script>document.documentElement.className+=' js';</script>
 </head>
 <body>
 
@@ -344,7 +345,7 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
 <div class="lp">
   <div class="article-layout">
 
-    <article class="prose reveal">
+    <article class="prose">
 
       <p class="lead">A customer messages you on WhatsApp asking about pricing. You reply, the conversation goes well, and they say they'll think about it. Two days later you follow up — and the message never arrives. Not delayed. Not unread. Rejected outright, by WhatsApp, before it ever reached their phone.</p>
 
@@ -573,10 +574,12 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
 
 <script>
 (function(){
+  if(!('IntersectionObserver' in window)){document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');});}else{
   var io = new IntersectionObserver(function(entries){
     entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  }
   var t=document.getElementById('nav-toggle'),l=document.getElementById('nav-links'),n=document.getElementById('site-nav');
   if(t&&l){
     t.addEventListener('click',function(){var o=l.classList.toggle('open');t.setAttribute('aria-expanded',String(o));t.classList.toggle('is-open',o);});
