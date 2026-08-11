@@ -24,3 +24,18 @@
   from = "/services.html"
   to = "/how-it-works.html"
   status = 301
+
+[[redirects]]
+  from = "/blog/best-crm-nigerian-service-businesses.html"
+  to = "/blog/best-crm-service-businesses.html"
+  status = 301
+
+[[redirects]]
+  from = "/blog/ai-chatbot-nigerian-clinics.html"
+  to = "/blog/ai-chatbot-for-clinics-and-dental-practices.html"
+  status = 301
+
+[[redirects]]
+  from = "/blog/automate-whatsapp-leads-nigeria.html"
+  to = "/blog/automate-whatsapp-leads.html"
+  status = 301
