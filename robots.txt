@@ -1,42 +1,29 @@
-# Disallow rules must repeat inside every group. A directive only applies to
-# the User-agent block directly above it, so keeping one shared block at the
-# bottom silently scoped these to the last agent listed and left the pages
-# crawlable by everyone else.
+# onboarding.html and client-brief.html are kept out of search by a noindex
+# meta tag on the pages themselves, not by a Disallow here. A disallowed page
+# is never fetched, so the crawler would never see the noindex and the URL
+# could still surface from an external link. Crawlable plus noindex is what
+# actually removes a page from the index.
 
 User-agent: *
 Allow: /
-Disallow: /onboarding.html
-Disallow: /client-brief.html
 
 User-agent: GPTBot
 Allow: /
-Disallow: /onboarding.html
-Disallow: /client-brief.html
 
 User-agent: ChatGPT-User
 Allow: /
-Disallow: /onboarding.html
-Disallow: /client-brief.html
 
 User-agent: PerplexityBot
 Allow: /
-Disallow: /onboarding.html
-Disallow: /client-brief.html
 
 User-agent: ClaudeBot
 Allow: /
-Disallow: /onboarding.html
-Disallow: /client-brief.html
 
 User-agent: anthropic-ai
 Allow: /
-Disallow: /onboarding.html
-Disallow: /client-brief.html
 
 User-agent: Google-Extended
 Allow: /
-Disallow: /onboarding.html
-Disallow: /client-brief.html
 
 Sitemap: https://leadoro.pro/sitemap.xml
 LLMs: https://leadoro.pro/llms.txt
