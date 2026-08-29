@@ -1028,8 +1028,11 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
         </ul>
       </div>
       <div class="audit-right">
-        <form class="audit-form reveal" style="--delay:.1s" name="lead-audit" method="POST" data-netlify="true">
+        <form class="audit-form reveal" id="lead-audit-form" style="--delay:.1s" name="lead-audit" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="lead-audit"/>
+          <p style="position:absolute;left:-9999px" aria-hidden="true">
+            <label>Leave this blank: <input name="bot-field" id="lead-audit-honeypot"/></label>
+          </p>
           <div class="form-field">
             <label for="af-name">Your name</label>
             <input id="af-name" type="text" name="name" placeholder="Amaka Okafor" required/>
@@ -1055,33 +1058,9 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
             <input id="af-wa" type="tel" name="whatsapp" placeholder="+234 800 000 0000"/>
           </div>
           <button type="submit" class="btn btn-lg" style="width:100%;justify-content:center;margin-top:4px">Request My Free Lead Audit</button>
-          <p class="form-note">We reply within 24 hours &middot; No spam, ever.</p>
+          <p class="form-note">We'll try to call you back instantly &middot; We reply within 24 hours either way &middot; No spam, ever.</p>
         </form>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ════ INSTANT CALLBACK DEMO ════ -->
-<section class="band">
-  <div class="lp">
-    <div style="max-width:640px;margin:0 auto;text-align:center">
-      <div class="eyebrow" style="justify-content:center">Try It Live</div>
-      <h2 class="audit-h2">Hear it call <em>you</em>, right now.</h2>
-      <p class="audit-sub">Drop your number below and an AI voice agent calls you back in seconds, the same way it would answer a lead for one of our clients. It says upfront that it's AI, always.</p>
-      <form id="demo-call-form" class="audit-form reveal" style="--delay:.1s;margin-top:28px;max-width:420px;margin-left:auto;margin-right:auto">
-        <div class="form-field">
-          <label for="dc-phone">Your phone number</label>
-          <input id="dc-phone" type="tel" name="phone" placeholder="+234 800 000 0000" required/>
-        </div>
-        <div class="form-field">
-          <label for="dc-email">Your email</label>
-          <input id="dc-email" type="email" name="email" placeholder="you@example.com" required/>
-        </div>
-        <input type="text" name="website" id="dc-website" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" aria-hidden="true"/>
-        <button type="submit" id="dc-submit" class="btn btn-lg" style="width:100%;justify-content:center;margin-top:4px">Call Me Now</button>
-        <p id="dc-status" class="form-note" style="min-height:16px"></p>
-      </form>
     </div>
   </div>
 </section>
@@ -1162,43 +1141,30 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
 
 <script>
 (function(){
-  var form = document.getElementById('demo-call-form');
+  // Rides on the existing lead-audit form instead of a separate widget.
+  // Deliberately does not preventDefault or touch the Netlify submission at
+  // all: that flow (data-netlify="true", 24h-reply note) keeps working
+  // exactly as before whether or not the call below succeeds. This is a
+  // fire-and-forget addition, not a replacement. `keepalive: true` is what
+  // lets the request actually finish even though the browser navigates away
+  // to Netlify's success page right after submit.
+  var form = document.getElementById('lead-audit-form');
   if(!form) return;
-  var phoneInput = document.getElementById('dc-phone');
-  var emailInput = document.getElementById('dc-email');
-  var websiteInput = document.getElementById('dc-website');
-  var submitBtn = document.getElementById('dc-submit');
-  var status = document.getElementById('dc-status');
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    var phone = (phoneInput.value || '').trim();
+  var phoneInput = document.getElementById('af-wa');
+  var emailInput = document.getElementById('af-email');
+  var honeypot = document.getElementById('lead-audit-honeypot');
+  form.addEventListener('submit', function(){
+    var phone = (phoneInput.value || '').replace(/[\s()-]/g, '').trim();
     var email = (emailInput.value || '').trim();
     if(!phone || !email){ return; }
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending…';
-    status.textContent = '';
-    fetch('https://meta.leadoro.pro/demo-call', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ phone: phone, email: email, website: websiteInput.value || '' })
-    }).then(function(res){ return res.json().then(function(data){ return { ok: res.ok, data: data }; }); })
-      .then(function(result){
-        if(result.ok){
-          submitBtn.textContent = 'Request sent';
-          status.textContent = "We'll get in touch with you shortly.";
-          phoneInput.value = '';
-          emailInput.value = '';
-        } else {
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'Call Me Now';
-          status.textContent = (result.data && result.data.message) || 'Something went wrong, check your details and try again.';
-        }
-      })
-      .catch(function(){
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Call Me Now';
-        status.textContent = 'Something went wrong, try again in a moment.';
+    try {
+      fetch('https://meta.leadoro.pro/demo-call', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ phone: phone, email: email, website: (honeypot && honeypot.value) || '' }),
+        keepalive: true
       });
+    } catch(e) { /* the Netlify submission must not be blocked by this failing */ }
   });
 })();
 </script>
