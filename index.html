@@ -1062,6 +1062,30 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
   </div>
 </section>
 
+<!-- ════ INSTANT CALLBACK DEMO ════ -->
+<section class="band">
+  <div class="lp">
+    <div style="max-width:640px;margin:0 auto;text-align:center">
+      <div class="eyebrow" style="justify-content:center">Try It Live</div>
+      <h2 class="audit-h2">Hear it call <em>you</em>, right now.</h2>
+      <p class="audit-sub">Drop your number below and an AI voice agent calls you back in seconds, the same way it would answer a lead for one of our clients. It says upfront that it's AI, always.</p>
+      <form id="demo-call-form" class="audit-form reveal" style="--delay:.1s;margin-top:28px;max-width:420px;margin-left:auto;margin-right:auto">
+        <div class="form-field">
+          <label for="dc-phone">Your phone number</label>
+          <input id="dc-phone" type="tel" name="phone" placeholder="+234 800 000 0000" required/>
+        </div>
+        <div class="form-field">
+          <label for="dc-email">Your email</label>
+          <input id="dc-email" type="email" name="email" placeholder="you@example.com" required/>
+        </div>
+        <input type="text" name="website" id="dc-website" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" aria-hidden="true"/>
+        <button type="submit" id="dc-submit" class="btn btn-lg" style="width:100%;justify-content:center;margin-top:4px">Call Me Now</button>
+        <p id="dc-status" class="form-note" style="min-height:16px"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
 <!-- ════ FINAL CTA ════ -->
 <section class="final">
   <svg class="final-wm" aria-hidden="true"><use href="#coin"/></svg>
@@ -1133,6 +1157,49 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
     document.addEventListener('click',function(e){if(n&&!n.contains(e.target)){l.classList.remove('open');t.setAttribute('aria-expanded','false');t.classList.remove('is-open');}});
     document.addEventListener('keydown',function(e){if(e.key==='Escape'){l.classList.remove('open');t.setAttribute('aria-expanded','false');t.classList.remove('is-open');t.focus();}});
   }
+})();
+</script>
+
+<script>
+(function(){
+  var form = document.getElementById('demo-call-form');
+  if(!form) return;
+  var phoneInput = document.getElementById('dc-phone');
+  var emailInput = document.getElementById('dc-email');
+  var websiteInput = document.getElementById('dc-website');
+  var submitBtn = document.getElementById('dc-submit');
+  var status = document.getElementById('dc-status');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var phone = (phoneInput.value || '').trim();
+    var email = (emailInput.value || '').trim();
+    if(!phone || !email){ return; }
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+    status.textContent = '';
+    fetch('https://meta.leadoro.pro/demo-call', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ phone: phone, email: email, website: websiteInput.value || '' })
+    }).then(function(res){ return res.json().then(function(data){ return { ok: res.ok, data: data }; }); })
+      .then(function(result){
+        if(result.ok){
+          submitBtn.textContent = 'Request sent';
+          status.textContent = "We'll get in touch with you shortly.";
+          phoneInput.value = '';
+          emailInput.value = '';
+        } else {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Call Me Now';
+          status.textContent = (result.data && result.data.message) || 'Something went wrong, check your details and try again.';
+        }
+      })
+      .catch(function(){
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Call Me Now';
+        status.textContent = 'Something went wrong, try again in a moment.';
+      });
+  });
 })();
 </script>
 
