@@ -1150,6 +1150,8 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
   // to Netlify's success page right after submit.
   var form = document.getElementById('lead-audit-form');
   if(!form) return;
+  var nameInput = document.getElementById('af-name');
+  var bizInput = document.getElementById('af-biz');
   var phoneInput = document.getElementById('af-wa');
   var emailInput = document.getElementById('af-email');
   var honeypot = document.getElementById('lead-audit-honeypot');
@@ -1161,7 +1163,13 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
       fetch('https://meta.leadoro.pro/demo-call', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ phone: phone, email: email, website: (honeypot && honeypot.value) || '' }),
+        body: JSON.stringify({
+          phone: phone,
+          email: email,
+          name: (nameInput && nameInput.value) || '',
+          business_type: (bizInput && bizInput.value) || '',
+          website: (honeypot && honeypot.value) || ''
+        }),
         keepalive: true
       });
     } catch(e) { /* the Netlify submission must not be blocked by this failing */ }
