@@ -19,6 +19,13 @@ LeadOro is a managed AI lead automation service for clinics, real estate agents,
 - [WhatsApp Automation for Clinics](https://leadoro.pro/blog/whatsapp-automation-for-clinics.html): How medical and wellness clinics use WhatsApp automation to handle patient inquiries and reduce no-shows.
 - [AI Lead Follow-Up for Real Estate](https://leadoro.pro/blog/ai-lead-follow-up-real-estate.html): How real estate agents use AI to follow up with property inquiries and book viewings automatically.
 - [The 24-Hour Rule](https://leadoro.pro/blog/whatsapp-24-hour-window-rule.html): How WhatsApp's 24-hour customer service window works, why free-form follow-ups are rejected with error 131047 once it closes, and how template messages, quality ratings and messaging limits fit together.
+- [Same Number for WhatsApp and AI Calls](https://leadoro.pro/blog/one-number-whatsapp-and-ai-calls.html): Why WhatsApp messaging and automated voice follow-up should run on one number, and why that is now technically possible.
+- [Why the First Reply Wins](https://leadoro.pro/blog/lead-response-time-first-reply-wins.html): Why lead response time decides who gets hired, where the delay comes from, and what a realistic reply target looks like.
+- [What a Missed Call Costs](https://leadoro.pro/blog/what-a-missed-call-costs.html): How to calculate what missed calls cost a service business, why voicemail no longer catches them, and what does.
+- [Why Chatbots Failed and AI Responders Do Not](https://leadoro.pro/blog/why-chatbots-fail-vs-ai-responder.html): The difference between a rule-based decision tree and an AI responder, and the setup mistakes that still break AI responders.
+- [Salon and Barbershop Booking Automation](https://leadoro.pro/blog/salon-barbershop-booking-automation.html): Why salons lose bookings in Instagram and WhatsApp DMs, what to automate, and what should always reach a stylist.
+- [Multilingual Lead Response](https://leadoro.pro/blog/multilingual-lead-response.html): Why translating an enquiry is not the same as answering it, and how to reply properly in the language a message arrived in.
+- [Should Your AI Agent Say It Is an AI](https://leadoro.pro/blog/should-your-ai-agent-say-it-is-ai.html): Where AI disclosure is legally required, what it does to a conversation, and how to word it without stalling the exchange.
 
 ## Pricing
 
