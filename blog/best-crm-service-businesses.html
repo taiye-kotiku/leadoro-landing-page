@@ -151,6 +151,9 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
 .prose strong { color: var(--ink); font-weight: 600; }
 .prose a { color: var(--copper); text-decoration: underline; text-decoration-color: rgba(184,97,45,.35); text-underline-offset: 3px; }
 .prose a:hover { color: var(--copper-deep); text-decoration-color: var(--copper-deep); }
+/* .prose a (0,1,1) outranks .btn (0,1,0), which painted the CTA button's
+   label copper on a copper background. Restate it above both. */
+.prose .btn:not(.ghost) { color: var(--card); }
 .prose.lead { font-size: 19px; line-height: 1.65; color: var(--ink); font-weight: 400; }
 
 /* Stat callout */
