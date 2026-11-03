@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>First Message vs System Prompt | LeadOro</title>
+  <meta name="description" content="Why a voice agent's first message and system prompt need different writing, testing, and review.">
+  <style>
+    :root{--paper:#f7f2e8;--ink:#29241f;--muted:#70675d;--copper:#b8612d;--line:#ded3c3}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.7 Georgia,serif}.wrap{max-width:860px;margin:auto;padding:28px 22px 80px}a{color:var(--copper)}h1{font-size:clamp(36px,7vw,64px);line-height:1.05;margin:.5em 0}h2{font-size:30px;margin-top:2em}.meta{font:12px/1.4 Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}.hero{margin:34px 0 20px;aspect-ratio:16/9;background:#000}.hero iframe{width:100%;height:100%;border:0}.links{font:600 14px Arial,sans-serif;margin-bottom:40px}.card{border-left:3px solid var(--copper);padding:14px 22px;background:#fffaf1;margin:28px 0}
+  </style>
+</head>
+<body><main class="wrap">
+  <p class="meta">Voice Agent Engineering · LeadOro AI Voice &amp; Conversation Design</p>
+  <h1>First Message vs System Prompt: The Words That Make or Break the Call</h1>
+  <p class="meta">LF19 · LeadOro</p>
+  <div class="hero"><iframe src="https://www.youtube-nocookie.com/embed/DoiU-KuaULg" title="First Message vs System Prompt" loading="lazy" allowfullscreen></iframe></div>
+  <p class="links"><a href="https://www.youtube.com/watch?v=DoiU-KuaULg">Watch LF19 on YouTube</a> · <a href="https://www.youtube.com/playlist?list=PLGwfWM9IS6iM">Watch the AI Voice &amp; Conversation Design playlist</a></p>
+  <p>The first message and the system prompt are both written instructions, but they do different jobs. The first message is fixed text that plays before the model knows anything about the call. The system prompt shapes the replies that follow.</p>
+  <h2>Write the first message for the ear</h2>
+  <p>A caller hears the opening cold. It needs to identify who is calling, explain why, and make any required AI disclosure in a natural sentence. Keep it short enough to understand without rereading and test it aloud at the speed of an actual call.</p>
+  <h2>Give the system prompt a structure</h2>
+  <p>The system prompt carries the role, scope, tone, boundaries, and rules for handing work to tools or people. “Be helpful and friendly” is not enough when the caller asks for something outside the workflow. Concrete conditions and fallback behavior give the model something to follow under pressure.</p>
+  <div class="card"><strong>Practical test:</strong> change one part at a time, run the same call scenarios, and record whether the opening problem or the live behavior changed. That keeps first-message fixes separate from prompt fixes.</div>
+  <h2>Keep the two layers separate</h2>
+  <p>A stiff opening with a good conversation afterward points to the first message. A natural opening followed by confused answers points to the system prompt, tools, or knowledge base. Treating those as separate layers makes iteration faster and the result easier to explain.</p>
+  <p>Continue with the <a href="https://www.youtube.com/@leadoro.official">LeadOro channel</a> for the rest of the AI phone agent build series.</p>
+</main></body></html>
