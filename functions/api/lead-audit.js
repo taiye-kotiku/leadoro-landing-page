@@ -4,6 +4,18 @@ function reply(status, body) {
   return new Response(JSON.stringify(body), { status, headers: JSON_HEADERS });
 }
 
+function cleanTag(value, maxLength = 120) {
+  return String(value || "").trim().replace(/[\r\n\t<>]/g, " ").replace(/\s+/g, " ").slice(0, maxLength);
+}
+
+function cleanPagePath(value) {
+  try {
+    return new URL(String(value || "/"), "https://leadoro.pro").pathname.slice(0, 200) || "/";
+  } catch {
+    return "/";
+  }
+}
+
 export async function onRequestPost({ request, env }) {
   const type = request.headers.get("content-type") || "";
   if (!type.includes("application/x-www-form-urlencoded") && !type.includes("multipart/form-data")) {
@@ -26,6 +38,13 @@ export async function onRequestPost({ request, env }) {
     email: String(form.get("email") || "").trim(),
     whatsapp: String(form.get("whatsapp") || "").trim(),
     source: "website-lead-audit",
+    landing_page: cleanPagePath(form.get("landing_page")),
+    referrer_host: cleanTag(form.get("referrer_host"), 160),
+    utm_source: cleanTag(form.get("utm_source")),
+    utm_medium: cleanTag(form.get("utm_medium")),
+    utm_campaign: cleanTag(form.get("utm_campaign")),
+    utm_content: cleanTag(form.get("utm_content")),
+    utm_term: cleanTag(form.get("utm_term")),
   };
 
   if (!lead.name || lead.name.length > 160 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(lead.email) || lead.email.length > 254 || lead.business_type.length > 160 || lead.whatsapp.length > 40) {
@@ -41,6 +60,14 @@ export async function onRequestPost({ request, env }) {
     "New LeadOro website lead audit request", "",
     `Name: ${lead.name}`, `Business type: ${lead.business_type || "Not provided"}`,
     `Email: ${lead.email}`, `WhatsApp: ${lead.whatsapp || "Not provided"}`,
+    "", "Attribution (visitor-provided):",
+    `Landing page: ${lead.landing_page}`,
+    `Referrer host: ${lead.referrer_host || "Direct / unavailable"}`,
+    `UTM source: ${lead.utm_source || "Not set"}`,
+    `UTM medium: ${lead.utm_medium || "Not set"}`,
+    `UTM campaign: ${lead.utm_campaign || "Not set"}`,
+    `UTM content: ${lead.utm_content || "Not set"}`,
+    `UTM term: ${lead.utm_term || "Not set"}`,
   ].join("\n");
   let delivery;
   try {

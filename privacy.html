@@ -77,13 +77,14 @@ li { margin-bottom: 8px; }
     <ul>
       <li><strong>Messages you send us</strong> on WhatsApp, Instagram, or Facebook, including your name, handle or phone number, and message content, so we can respond to you.</li>
       <li><strong>Business contact details</strong> for prospective clients (business name, phone, email, social handles, website, location) sourced from public business listings, used to reach out about our services.</li>
-      <li><strong>Website usage data</strong> (standard web analytics) when you visit leadoro.pro.</li>
+      <li><strong>Lead audit form details</strong> (name, business type, email address, and optional WhatsApp number) when you submit the form. The submission also includes the page path, referring website hostname, and optional campaign tags from the link you used, so we can understand which sources bring enquiries.</li>
     </ul>
 
     <h2>How we use it</h2>
     <ul>
       <li>To respond to inbound messages and questions in real time, across WhatsApp, Instagram, and Facebook.</li>
       <li>To reach out to prospective clients about LeadOro's services.</li>
+      <li>To reply to lead audit requests and understand which pages or campaign links generated them.</li>
       <li>To keep an internal record of conversations so follow-ups are informed and consistent, rather than starting from scratch each time.</li>
       <li>To improve our own messaging and service quality.</li>
     </ul>
@@ -93,6 +94,8 @@ li { margin-bottom: 8px; }
     <p>We use a small number of service providers to operate LeadOro, each acting as a data processor on our behalf:</p>
     <ul>
  <li><strong>Meta</strong> (WhatsApp, Instagram, Facebook): the messaging platforms themselves.</li>
+ <li><strong>Cloudflare</strong>: website hosting and secure processing of lead audit form submissions.</li>
+ <li><strong>Resend</strong>: delivery of lead audit request emails to LeadOro.</li>
  <li><strong>Supabase</strong>: our database provider, used to store CRM and conversation records securely.</li>
       <li>AI language model providers, used to help draft and understand message content.</li>
     </ul>
